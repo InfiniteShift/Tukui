@@ -4,7 +4,7 @@ if not C["actionbar"].enable == true then return end
 ---------------------------------------------------------------------------
 -- setup MultiBarRight as bar #4
 ---------------------------------------------------------------------------
-
+--[[
 local bar = TukuiBar4
 bar:SetAlpha(1)
 MultiBarLeft:SetParent(bar)
@@ -22,4 +22,4 @@ for i= 1, 12 do
 	else
 		b:SetPoint("LEFT", b2, "RIGHT", T.buttonspacing, 0)
 	end
-end
+end]]
