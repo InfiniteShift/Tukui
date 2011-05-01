@@ -48,11 +48,13 @@ local function ShowOrHideBar(bar, button)
 			TukuiBar2Button:SetHeight(TukuiBar1:GetHeight())
 			TukuiBar3Button:SetHeight(TukuiBar1:GetHeight())
 			if not T.lowversion then
-				for i = 7, 12 do
-					local left = _G["MultiBarBottomLeftButton"..i]
-					local right = _G["MultiBarBottomRightButton"..i]
-					left:SetAlpha(0)
-					right:SetAlpha(0)
+				for i = 4, 6 do
+					local sides = _G["MultiBarLeftButton"..i]
+					sides:SetAlpha(0)
+				end
+				for i = 10, 12 do
+					local sides = _G["MultiBarLeftButton"..i]
+					sides:SetAlpha(0)
 				end
 			end
 		end
@@ -79,11 +81,13 @@ local function ShowOrHideBar(bar, button)
 			TukuiBar2Button:SetHeight(TukuiBar2:GetHeight())
 			TukuiBar3Button:SetHeight(TukuiBar3:GetHeight())
 			if not T.lowversion then
-				for i = 7, 12 do
-					local left = _G["MultiBarBottomLeftButton"..i]
-					local right = _G["MultiBarBottomRightButton"..i]
-					left:SetAlpha(1)
-					right:SetAlpha(1)
+				for i = 4, 6 do
+					local sides = _G["MultiBarLeftButton"..i]
+					sides:SetAlpha(1)
+				end
+				for i = 10, 12 do
+					local sides = _G["MultiBarLeftButton"..i]
+					sides:SetAlpha(1)
 				end
 			end
 		end
@@ -109,12 +113,12 @@ local function MoveButtonBar(button, bar)
 	
 	if button == TukuiBar3Button then
 		if bar:IsShown() then
-			db.hidebar3 = false
+			db.hidebar2 = false
 			button:ClearAllPoints()
 			button:Point("BOTTOMLEFT", TukuiBar3, "BOTTOMRIGHT", 2, 0)
 			button.text:SetText("|cff4BAF4C<|r")
 		else
-			db.hidebar3 = true
+			db.hidebar2 = true
 			button:ClearAllPoints()
 			button:Point("BOTTOMLEFT", TukuiBar1, "BOTTOMRIGHT", 2, 0)
 			button.text:SetText("|cff4BAF4C>|r")
@@ -173,7 +177,15 @@ local function DrPepper(self, bar) -- guess what! :P
 	local button = self
 	
 	ShowOrHideBar(bar, button)
-	MoveButtonBar(button, bar)
+	if button == TukuiBar2Button then
+		MoveButtonBar(button, bar)
+		MoveButtonBar(TukuiBar3Button, bar)
+	elseif button == TukuiBar3Button then
+		MoveButtonBar(button, bar)
+		MoveButtonBar(TukuiBar2Button, bar) 
+	else
+		MoveButtonBar(button, bar)
+	end
 end
 
 local TukuiBar2Button = CreateFrame("Button", "TukuiBar2Button", UIParent)
@@ -188,8 +200,8 @@ TukuiBar2Button:SetTemplate("Default")
 TukuiBar2Button:RegisterForClicks("AnyUp")
 TukuiBar2Button:SetAlpha(0)
 TukuiBar2Button:SetScript("OnClick", function(self) DrPepper(self, TukuiBar2) end)
-TukuiBar2Button:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
-TukuiBar2Button:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
+TukuiBar2Button:SetScript("OnEnter", function(self) self:SetAlpha(1) TukuiBar3Button:SetAlpha(1) end)
+TukuiBar2Button:SetScript("OnLeave", function(self) self:SetAlpha(0) TukuiBar3Button:SetAlpha(0) end)
 TukuiBar2Button.text = T.SetFontString(TukuiBar2Button, C.media.uffont, 20)
 TukuiBar2Button.text:Point("CENTER", 1, 1)
 TukuiBar2Button.text:SetText("|cff4BAF4C>|r")
@@ -205,9 +217,9 @@ end
 TukuiBar3Button:SetTemplate("Default")
 TukuiBar3Button:RegisterForClicks("AnyUp")
 TukuiBar3Button:SetAlpha(0)
-TukuiBar3Button:SetScript("OnClick", function(self) DrPepper(self, TukuiBar3) end)
-TukuiBar3Button:SetScript("OnEnter", function(self) self:SetAlpha(1) end)
-TukuiBar3Button:SetScript("OnLeave", function(self) self:SetAlpha(0) end)
+TukuiBar3Button:SetScript("OnClick", function(self) DrPepper(self, TukuiBar2) end)
+TukuiBar3Button:SetScript("OnEnter", function(self) self:SetAlpha(1) TukuiBar2Button:SetAlpha(1) end)
+TukuiBar3Button:SetScript("OnLeave", function(self) self:SetAlpha(0) TukuiBar2Button:SetAlpha(0) end)
 TukuiBar3Button.text = T.SetFontString(TukuiBar3Button, C.media.uffont, 20)
 TukuiBar3Button.text:Point("CENTER", 1, 1)
 TukuiBar3Button.text:SetText("|cff4BAF4C<|r")
@@ -297,8 +309,8 @@ init:SetScript("OnEvent", function(self, event)
 		DrPepper(TukuiBar2Button, TukuiBar2)
 	end
 	
-	if not T.lowversion and db.hidebar3 then
-		DrPepper(TukuiBar3Button, TukuiBar3)
+	if not T.lowversion and db.hidebar2 then
+		DrPepper(TukuiBar3Button, TukuiBar2)
 	end
 	
 	if db.hidebar4 then

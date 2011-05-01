@@ -21,7 +21,7 @@ C["unitframes"] = {
 	["playerauras"] = false,                            -- enable auras
 	["targetauras"] = true,                             -- enable auras on target unit frame
 	["lowThreshold"] = 20,                              -- global low threshold, for low mana warning.
-	["targetpowerpvponly"] = true,                      -- enable power text on pvp target only
+	["targetpowerpvponly"] = false,                     -- enable power text on pvp target only
 	["totdebuffs"] = false,                             -- enable tot debuffs (high reso only)
 	["showtotalhpmp"] = true,                          	-- change the display of info text on player and target with XXXX/Total.
 	["showsmooth"] = true,                              -- enable smooth bar
@@ -39,7 +39,7 @@ C["unitframes"] = {
 	-- raid layout (if one of them is enabled)
 	["showrange"] = true,                               -- show range opacity on raidframes
 	["raidalphaoor"] = 0.3,                             -- alpha of unitframes when unit is out of range
-	["gridonly"] = true,                               -- enable grid only mode for all healer mode raid layout.
+	["gridonly"] = true,                                -- enable grid only mode for all healer mode raid layout.
 	["showsymbols"] = true,	                            -- show symbol.
 	["aggro"] = true,                                   -- show aggro on all raids layouts
 	["raidunitdebuffwatch"] = true,                     -- track important spell to watch in pve for grid mode.
@@ -54,11 +54,22 @@ C["unitframes"] = {
 	["weakenedsoulbar"] = false,                        -- show weakened soul bar
 	
 	-- class bar
-	["classbar"] = false,                                -- enable tukui classbar over player unit
+	["classbar"] = true,                               -- enable tukui classbar over player unit
+}
+
+C["framesizes"] = {
+	["playtarwidth"] = 220,								--width of player/target frame
+	["playtarheight"] = 28,								--height of player/target frame
+	["smallwidth"] = 100,								--Width of TargetTarget, Focus, FocusTarget, Player's Pet frames
+	["smallheight"] = 23,								--Height of TargetTarget, Focus, FocusTarget, Player's Pet frames
+	["arenabosswidth"] = 180,							--Width of Arena/Boss Frames
+	["arenabossheight"] = 28,							--Height of Arena/Boss Frames
+	["assisttankwidth"] = 100,							--Width of MainTank/MainAssist frames
+	["assisttankheight"] = 20,							--Height of MainTank/MainAssist frames
 }
 
 C["arena"] = {
-	["unitframes"] = true,                              -- enable tukz arena unitframes (requirement : tukui unitframes enabled)
+	["unitframes"] = false,                              -- enable tukz arena unitframes (requirement : tukui unitframes enabled)
 }
 
 C["auras"] = {
@@ -67,7 +78,7 @@ C["auras"] = {
 
 C["actionbar"] = {
 	["enable"] = true,                                  -- enable tukui action bars
-	["hotkey"] = true,                                 -- enable hotkey display because it was a lot requested
+	["hotkey"] = true,                               	-- enable hotkey display because it was a lot requested
 	["hideshapeshift"] = false,                         -- hide shapeshift or totembar because it was a lot requested.
 	["showgrid"] = true,                                -- show grid on empty button
 	["buttonsize"] = 25,                                -- normal buttons size
@@ -116,9 +127,9 @@ C["datatext"] = {
 	["micromenu"] = 0,                                  -- add a micro menu thought datatext
 	["regen"] = 0,                                      -- show mana regeneration
 
-	["battleground"] = false,                            -- enable 3 stats in battleground only that replace stat1,stat2,stat3.
+	["battleground"] = false,                           -- enable 3 stats in battleground only that replace stat1,stat2,stat3.
 	["time24"] = true,                                  -- set time to 24h format.
-	["localtime"] = true,                              -- set time to local time instead of server time.
+	["localtime"] = true,                               -- set time to local time instead of server time.
 	["fontsize"] = 12,                                  -- font size for panels.
 }
 
@@ -130,7 +141,7 @@ C["chat"] = {
 
 C["nameplate"] = {
 	["enable"] = true,                                  -- enable nice skinned nameplates that fit into tukui
-	["showhealth"] = false,				                -- show health text on nameplate
+	["showhealth"] = true,				                -- show health text on nameplate
 	["enhancethreat"] = false,			                -- threat features based on if your a tank or not
 	["combat"] = false,					                -- only show enemy nameplates in-combat.
 	["goodcolor"] = {75/255,  175/255, 76/255},	        -- good threat color (tank shows this with threat, everyone else without)
@@ -148,7 +159,7 @@ C["tooltip"] = {
 
 C["merchant"] = {
 	["sellgrays"] = true,                               -- automaticly sell grays?
-	["autorepair"] = false,                              -- automaticly repair?
+	["autorepair"] = false,                             -- automaticly repair?
 	["sellmisc"] = true,                                -- sell defined items automatically
 }
 

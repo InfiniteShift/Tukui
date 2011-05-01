@@ -6,7 +6,8 @@ if not C["actionbar"].enable == true then return end
 -- setup MultiBarBottomLeft as bar #2
 ---------------------------------------------------------------------------
 
-local bar = TukuiBar2
+local bar = TukuiBar4
+bar:SetAlpha(1)
 MultiBarBottomLeft:SetParent(bar)
 
 -- setup the bar

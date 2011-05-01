@@ -20,7 +20,7 @@ else
 	TukuiBar2:SetAlpha(1)
 end
 
-local TukuiBar3 = CreateFrame("Frame", "TukuiBar3", UIParent)
+local TukuiBar3 = CreateFrame("Frame", "TukuiBar3", TukuiBar2)
 TukuiBar3:CreatePanel("Default", 1, 1, "BOTTOMLEFT", TukuiBar1, "BOTTOMRIGHT", 3, 0)
 TukuiBar3:SetWidth((T.buttonsize * 3) + (T.buttonspacing * 4))
 TukuiBar3:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
@@ -76,23 +76,12 @@ ltpetbg1:SetAlpha(0)
 
 -- INVISIBLE FRAME COVERING BOTTOM ACTIONBARS JUST TO PARENT UF CORRECTLY
 local invbarbg = CreateFrame("Frame", "InvTukuiActionBarBackground", UIParent)
+invbarbg:SetPoint("TOPLEFT", TukuiBar1)
+invbarbg:SetPoint("BOTTOMRIGHT", TukuiBar1)
 if T.lowversion then
-	invbarbg:SetPoint("TOPLEFT", TukuiBar1)
-	invbarbg:SetPoint("BOTTOMRIGHT", TukuiBar1)
 	TukuiBar2:Hide()
 	TukuiBar3:Hide()
-else
-	invbarbg:SetPoint("TOPLEFT", TukuiBar2)
-	invbarbg:SetPoint("BOTTOMRIGHT", TukuiBar3)
 end
-
--- LEFT VERTICAL LINE
-local ileftlv = CreateFrame("Frame", "TukuiInfoLeftLineVertical", TukuiBar1)
-ileftlv:CreatePanel("Default", 2, 130, "BOTTOMLEFT", UIParent, "BOTTOMLEFT", 22, 30)
-
--- RIGHT VERTICAL LINE
-local irightlv = CreateFrame("Frame", "TukuiInfoRightLineVertical", TukuiBar1)
-irightlv:CreatePanel("Default", 2, 130, "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -22, 30)
 
 if not C.chat.background then
 	-- CUBE AT LEFT, ACT AS A BUTTON (CHAT MENU)
@@ -126,37 +115,19 @@ if not C.chat.background then
 	end
 end
 
--- HORIZONTAL LINE LEFT
-local ltoabl = CreateFrame("Frame", "TukuiLineToABLeft", TukuiBar1)
-ltoabl:CreatePanel("Default", 5, 2, "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", 0, 0)
-ltoabl:ClearAllPoints()
-ltoabl:Point("BOTTOMLEFT", ileftlv, "BOTTOMLEFT", 0, 0)
-ltoabl:Point("RIGHT", TukuiBar1, "BOTTOMLEFT", -1, 17)
-ltoabl:SetFrameStrata("BACKGROUND")
-ltoabl:SetFrameLevel(1)
-
--- HORIZONTAL LINE RIGHT
-local ltoabr = CreateFrame("Frame", "TukuiLineToABRight", TukuiBar1)
-ltoabr:CreatePanel("Default", 5, 2, "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", 0, 0)
-ltoabr:ClearAllPoints()
-ltoabr:Point("LEFT", TukuiBar1, "BOTTOMRIGHT", 1, 17)
-ltoabr:Point("BOTTOMRIGHT", irightlv, "BOTTOMRIGHT", 0, 0)
-ltoabr:SetFrameStrata("BACKGROUND")
-ltoabr:SetFrameLevel(1)
-
 -- MOVE/HIDE SOME ELEMENTS IF CHAT BACKGROUND IS ENABLED
 local movechat = 0
 if C.chat.background then movechat = 10 ileftlv:SetAlpha(0) irightlv:SetAlpha(0) end
 
 -- INFO LEFT (FOR STATS)
 local ileft = CreateFrame("Frame", "TukuiInfoLeft", TukuiBar1)
-ileft:CreatePanel("Default", T.InfoLeftRightWidth, 23, "LEFT", ltoabl, "LEFT", 14 - movechat, 0)
+ileft:CreatePanel("Default", T.InfoLeftRightWidth, 23, "BOTTOMLEFT", UIParent, "BOTTOMLEFT", 4*T.mult, 4*T.mult)
 ileft:SetFrameLevel(2)
 ileft:SetFrameStrata("BACKGROUND")
 
 -- INFO RIGHT (FOR STATS)
 local iright = CreateFrame("Frame", "TukuiInfoRight", TukuiBar1)
-iright:CreatePanel("Default", T.InfoLeftRightWidth, 23, "RIGHT", ltoabr, "RIGHT", -14 + movechat, 0)
+iright:CreatePanel("Default", T.InfoLeftRightWidth, 23, "BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -4*T.mult, 4*T.mult)
 iright:SetFrameLevel(2)
 iright:SetFrameStrata("BACKGROUND")
 

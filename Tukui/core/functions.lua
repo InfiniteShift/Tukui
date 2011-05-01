@@ -834,20 +834,57 @@ end
 
 T.UpdateThreat = function(self, event, unit)
 	if (self.unit ~= unit) or (unit == "target" or unit == "pet" or unit == "focus" or unit == "focustarget" or unit == "targettarget") then return end
+	if not self.unit then return end
+	if not unit then return end
+	
 	local threat = UnitThreatSituation(self.unit)
-	if (threat == 3) then
-		if self.panel then
-			self.panel:SetBackdropBorderColor(.69,.31,.31,1)
+	if threat and threat > 1 then
+		local r, g, b = GetThreatStatusColor(threat)
+		if self.FrameBorder.shadow then
+			self.FrameBorder.shadow:SetBackdropBorderColor(r,g,b,0.85)
+			if self.PowerFrame and self.PowerFrame.shadow then
+				self.PowerFrame.shadow:SetBackdropBorderColor(r,g,b,0.85)
+			end
+			if self.PFrame and self.PFrame.shadow then
+				self.PFrame.shadow:SetBackdropBorderColor(r, g, b, 1)
+			end
 		else
-			self.Name:SetTextColor(1,0.1,0.1)
+			if self.HealthBorder then
+				self.HealthBorder:SetBackdropBorderColor(r, g, b, 1)
+			end
+			if self.PFrame then
+				self.PFrame:SetBackdropBorderColor(r, g, b, 1)
+			end
+			self.FrameBorder:SetBackdropBorderColor(r, g, b, 1)
 		end
 	else
-		if self.panel then
-			self.panel:SetBackdropBorderColor(unpack(C["media"].altbordercolor))
+		if self.FrameBorder.shadow then
+			self.FrameBorder.shadow:SetBackdropBorderColor(0,0,0,0.75)
+			if self.PowerFrame and self.PowerFrame.shadow then
+				self.PowerFrame.shadow:SetBackdropBorderColor(0,0,0,0.75)
+			end
+			if self.PFrame and self.PFrame.shadow then
+				self.PFrame.shadow:SetBackdropBorderColor(0, 0, 0, 1)
+			end
 		else
-			self.Name:SetTextColor(1,1,1)
+			self.FrameBorder:SetBackdropBorderColor(unpack(C["media"].altbordercolor))
+			if self.HealthBorder then
+				self.HealthBorder:SetBackdropBorderColor(unpack(C["media"].altbordercolor))
+			end
+			if self.PFrame then
+				self.PFrame:SetBackdropBorderColor(unpack(C["media"].altbordercolor))
+			end
 		end
 	end 
+end
+
+function T.ExperienceText(self, unit, min, max)
+	local rested = GetXPExhaustion()
+	if rested then 
+		self.Text:SetFormattedText('XP: '..T.ShortValue(min)..' / '..T.ShortValue(max)..' <%d%%>  R: +'..T.ShortValue(rested)..' <%d%%>', min / max * 100, rested / max * 100)
+	else
+		self.Text:SetFormattedText('XP: '..T.ShortValue(min)..' / '..T.ShortValue(max)..' <%d%%>', min / max * 100)
+	end
 end
 
 --------------------------------------------------------------------------------------------
