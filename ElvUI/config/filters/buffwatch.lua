@@ -17,9 +17,9 @@ E.HealerBuffIDs = {
 		ClassBuff(33076, "TOPRIGHT", {0.2, 0.7, 0.2}), -- Prayer of Mending
 		ClassBuff(139, "BOTTOMLEFT", {0.4, 0.7, 0.2}), -- Renew
 		ClassBuff(17, "BOTTOMRIGHT", {0.81, 0.85, 0.1}, true), -- Power Word: Shield
-		ClassBuff(10060 , "RIGHT", {227/255, 23/255, 13/255}), -- Power Infusion
-		ClassBuff(33206, "LEFT", {227/255, 23/255, 13/255}, true), -- Pain Suppression
-		ClassBuff(47788, "LEFT", {221/255, 117/255, 0}, true), -- Guardian Spirit
+		ClassBuff(10060 , "LEFT", {227/255, 23/255, 13/255}), -- Power Infusion
+		ClassBuff(33206, "RIGHT", {0, 0.8, 0.8}, true), -- Pain Suppression
+		ClassBuff(47788, "RIGHT", {221/255, 117/255, 0}, true), -- Guardian Spirit
 	},
 	DRUID = {
 		ClassBuff(774, "TOPRIGHT", {0.8, 0.4, 0.8}), -- Rejuvenation
@@ -36,7 +36,6 @@ E.HealerBuffIDs = {
 	},
 	SHAMAN = {
 		ClassBuff(61295, "TOPLEFT", {0.7, 0.3, 0.7}), -- Riptide 
-		ClassBuff(16236, "BOTTOMLEFT", {0.4, 0.7, 0.2}), -- Ancestral Fortitude
 		ClassBuff(51945, "BOTTOMRIGHT", {0.7, 0.4, 0}), -- Earthliving
 		ClassBuff(974, "TOPRIGHT", {221/255, 117/255, 0}, true), -- Earth Shield
 	},
@@ -67,9 +66,6 @@ E.DPSBuffIDs = {
 
 --pets
 E.PetBuffs = {
-	HUNTER = {
-		ClassBuff(136, "TOPRIGHT", {0.2, 0.8, 0.2}), -- Mend Pet
-	},
 	DEATHKNIGHT = {
 		ClassBuff(91342, "TOPRIGHT", {0.2, 0.8, 0.2}), -- Shadow Infusion
 		ClassBuff(63560, "TOPLEFT", {227/255, 23/255, 13/255}), --Dark Transformation
