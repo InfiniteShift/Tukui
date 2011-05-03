@@ -32,9 +32,8 @@ function E.Install()
 		FCF_SetLocked(ChatFrame2, 1)
 
 		FCF_OpenNewWindow(LOOT)
-		FCF_UnDockFrame(ChatFrame3)
-		FCF_SetLocked(ChatFrame3, 1)
-		ChatFrame3:Show()			
+		FCF_DockFrame(ChatFrame3)
+		FCF_SetLocked(ChatFrame3, 1)			
 				
 		for i = 1, NUM_CHAT_WINDOWS do
 			local frame = _G[format("ChatFrame%s", i)]
@@ -67,7 +66,7 @@ function E.Install()
 			elseif i == 2 then
 				FCF_SetWindowName(frame, GUILD_EVENT_LOG)
 			elseif i == 3 then 
-				FCF_SetWindowName(frame, LOOT.." / "..TRADE) 
+				FCF_SetWindowName(frame, LOOT) 
 			end
 		end
 		
@@ -112,9 +111,9 @@ function E.Install()
 		ChatFrame_AddMessageGroup(ChatFrame3, "COMBAT_XP_GAIN")
 		ChatFrame_AddMessageGroup(ChatFrame3, "COMBAT_HONOR_GAIN")
 		ChatFrame_AddMessageGroup(ChatFrame3, "COMBAT_GUILD_XP_GAIN")
+		
 		ChatFrame_AddChannel(ChatFrame1, GENERAL)
-		ChatFrame_RemoveChannel(ChatFrame1, L.chat_trade)
-		ChatFrame_AddChannel(ChatFrame3, L.chat_trade)
+		ChatFrame_AddChannel(ChatFrame1, L.chat_trade)
 
 		
 		if E.myname == "Elv" then

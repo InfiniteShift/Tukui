@@ -127,7 +127,7 @@ oUF.Tags['Elvui:nameshort'] = function(unit)
 	local name = UnitName(unit)
 	local colorblind = GetCVarBool("colorblindMode")
 	if colorblind ~= 1 then
-		return utf8sub(name, 10, false)
+		return utf8sub(name, 5, false)
 	else
 		if (UnitIsPlayer(unit)) then
 			local class = select(2, UnitClass(unit))

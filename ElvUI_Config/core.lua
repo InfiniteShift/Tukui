@@ -598,6 +598,12 @@ function ElvuiConfig.GenerateOptionsInternal()
 						name = L["Lower Frame"],
 						desc = L["Enable a bar accross the bottom of the screen, mostly for decoration."],					
 					},
+					blizzardtextures = {
+						order = 12,
+						type = "toggle",
+						name = L["Skin Blizzard Frames"],
+						desc = L["Enable Elvui style skins on Blizzard frames, such as Character Pane, Spellbook, etc. (WARNING! Still in BETA not all frames have skins yet."],
+					},
 				},
 			},
 			media = {
@@ -2388,7 +2394,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 								desc = L["Attach BigWigs's Bars to the right window"],
 							},							
 						},
-					},						
+					},
 				},
 			},	
 			spellfilter = {
@@ -2670,7 +2676,7 @@ function ElvuiConfig.GenerateOptionsInternal()
 						},
 					},
 					AurasGroup = {
-						order = 3,
+						order = 4,
 						type = "group",
 						name = L["Combat"],	
 						args = {

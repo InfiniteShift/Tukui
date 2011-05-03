@@ -94,8 +94,8 @@ function Update(self)
 					bar.count = _G[bar.count:GetName()]
 				else
 					bar.count = bar:CreateFontString("$parentCount", "OVERLAY")
-					bar.count:SetFont(C["media"].uffont, 14, "OUTLINE")
-					bar.count:Point("BOTTOMRIGHT", 1, -1)
+					bar.count:SetFont(C["media"].uffont, 13, "OUTLINE")
+					bar.count:Point("BOTTOMRIGHT", 0, 1)
 					bar.count:SetJustifyH("CENTER")
 				end
 			else
@@ -147,7 +147,7 @@ function Update(self)
 					bar.count = _G[bar.count:GetName()]
 				else
 					bar.count = bar:CreateFontString("$parentCount", "ARTWORK")
-					bar.count:SetFont(C["media"].uffont, 14, "OUTLINE")
+					bar.count:SetFont(C["media"].uffont, 12, "OUTLINE")
 					bar.count:Point("BOTTOMRIGHT", 1, 1)
 					bar.count:SetJustifyH("CENTER")
 				end

@@ -31,7 +31,10 @@ L["General Settings"] = "일반설정"
 		L["Enable a bar accross the top of the screen, doing this will move the location and coords texts to that bar, and also allow for spaces nine and ten of the datatexts to be used."] = "화면 상단에 가로바 사용, 지역과 좌표 표시를 이 바로 이동시킬수 있으며, 사용될 정보글자에 9 & 10 공간을 허용합니다."
 	L["Lower Frame"] = "하단창"
 		L["Enable a bar accross the bottom of the screen, mostly for decoration."] = "화면 하단에 가로바 사용, 주로 장식용"
+	L["Skin Blizzard Frames"] = true
+		L["Enable Elvui style skins on Blizzard frames, such as Character Pane, Spellbook, etc. (WARNING! Still in BETA not all frames have skins yet."] = true
 
+	
 --Media
 L["Media"] = "미디어"
 	L["MEDIA_DESC"] = "ElvUI의 텍스쳐, 색상, 글꼴과 소리 설정"

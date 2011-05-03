@@ -44,7 +44,7 @@ function E.PositionBar3()
 					b:SetPoint("LEFT", b2, "RIGHT", E.buttonspacing, 0)
 				end
 			else
-				if i > 6 and E["actionbar"].bottomrows == 1 then
+				if ((i > 3 and i < 7) or i > 9) and E["actionbar"].bottomrows == 1 then
 					b:Hide()
 					b:SetParent(ElvuiBar3Split)
 					ElvuiBar3Split:Hide()

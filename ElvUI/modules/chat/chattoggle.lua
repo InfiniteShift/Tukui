@@ -1,8 +1,10 @@
 local E, C, L, DB = unpack(select(2, ...)) -- Import Functions/Constants, Config, Locales
+--[[
 
 ------------------------------------------------------------------------
 -- Chat Toggle Functions
 ------------------------------------------------------------------------
+
 E.ToggleSlideChatL = function()
 	if E.ChatLIn == true then
 		ChatLBackground:Hide()
@@ -75,3 +77,5 @@ ElvuiInfoRightRButton:SetScript("OnMouseDown", function(self, btn)
 		E.ToggleSlideChatR()
 	end
 end)
+
+]]

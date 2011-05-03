@@ -79,7 +79,7 @@ local function Shared(self, unit)
 	if unit == "player" then
 		local POWERBAR_WIDTH = C["unitframes"].playtarwidth/2*E.ResScale
 		local CLASSBAR_WIDTH = (C["unitframes"].playtarwidth - (2*2))*E.ResScale
-		local POWERBAR_HEIGHT = 10*E.ResScale
+		local POWERBAR_HEIGHT = 11*E.ResScale
 		local CASTBAR_HEIGHT = C["unitframes"].castplayerheight*E.ResScale
 		local CASTBAR_WIDTH = C["unitframes"].castplayerwidth*E.ResScale
 		local PORTRAIT_WIDTH = 45*E.ResScale
@@ -801,7 +801,7 @@ local function Shared(self, unit)
 	if unit == "target" then
 		local POWERBAR_WIDTH = C["unitframes"].playtarwidth/2*E.ResScale
 		local CLASSBAR_WIDTH = (C["unitframes"].playtarwidth - (2*2))*E.ResScale
-		local POWERBAR_HEIGHT = 10*E.ResScale
+		local POWERBAR_HEIGHT = 11*E.ResScale
 		local CASTBAR_HEIGHT = C["unitframes"].casttargetheight*E.ResScale
 		local CASTBAR_WIDTH = C["unitframes"].casttargetwidth*E.ResScale
 		local PORTRAIT_WIDTH = 45*E.ResScale		
@@ -1140,7 +1140,7 @@ local function Shared(self, unit)
 	------------------------------------------------------------------------
 	--	TargetofTarget, Pet, PetTarget, Focus, FocusTarget
 	------------------------------------------------------------------------
-	if (unit == "targettarget" or unit == "pet" or unit == "pettarget" or unit == "focustarget" or unit == "focus") then
+	if (unit == "targettarget" or unit == "pet" or unit == "pettarget" or unit == "focustarget") then
 		local POWERBAR_WIDTH = C["unitframes"].smallwidth/1.5*E.ResScale
 		local POWERBAR_HEIGHT = 8
 		local CASTBAR_WIDTH = C["unitframes"].castfocuswidth*E.ResScale
@@ -1182,7 +1182,7 @@ local function Shared(self, unit)
 		self:Tag(self.Name, '[Elvui:getnamecolor][Elvui:namemedium]')		
 		
 		--Auras
-		if (unit == "targettarget" and C["unitframes"].totdebuffs == true) or (unit == "focus" and C["unitframes"].focusdebuffs == true) then	
+		if (unit == "targettarget" and C["unitframes"].totdebuffs == true) then	
 			local debuffs = CreateFrame("Frame", nil, self)
 			debuffs.num = C["unitframes"].smallbuffperrow
 			debuffs:SetWidth(SMALL_WIDTH)
@@ -1193,6 +1193,98 @@ local function Shared(self, unit)
 			debuffs.initialAnchor = 'BOTTOMRIGHT'
 			debuffs["growth-y"] = "UP"
 			debuffs["growth-x"] = "LEFT"
+			debuffs.PostCreateIcon = E.PostCreateAura
+			debuffs.PostUpdateIcon = E.PostUpdateAura
+			debuffs.CustomFilter = E.AuraFilter
+			self.Debuffs = debuffs
+		end
+	
+		-- Debuff Highlight
+		if C["unitframes"].debuffhighlight == true then
+			local dbh = self:CreateTexture(nil, "OVERLAY")
+			dbh:SetAllPoints(self.Health.backdrop)
+			dbh:SetTexture(C["media"].blank)
+			dbh:SetBlendMode("ADD")
+			dbh:SetVertexColor(0,0,0,0)
+			self.DebuffHighlight = dbh
+			self.DebuffHighlightFilter = true
+			self.DebuffHighlightAlpha = 0.35
+		end
+		
+		if unit == "pet" then
+			--Dummy Cast Bar, so we don't see an extra castbar while in vehicle
+			if (C["unitframes"].unitcastbar == true) then
+				local castbar = CreateFrame("StatusBar", nil, self)
+				self.Castbar = castbar
+			end
+			
+			--Incoming Pet Heals
+			if C["raidframes"].raidunitbuffwatch == true then
+				E.createAuraWatch(self,unit)
+			end
+			
+			--Autohide in combat
+			if C["unitframes"].combat == true then
+				self:HookScript("OnEnter", function(self) E.Fader(self, true) end)
+				self:HookScript("OnLeave", function(self) E.Fader(self, false) end)
+			end
+		end
+	end
+	
+	------------------------------------------------------------------------
+	--	Focus
+	------------------------------------------------------------------------
+	if (unit == "focus") then
+		local POWERBAR_WIDTH = C["unitframes"].playtarwidth/1.5*E.ResScale
+		local POWERBAR_HEIGHT = 8
+		local CASTBAR_WIDTH = C["unitframes"].castfocuswidth*E.ResScale
+		local CASTBAR_HEIGHT = C["unitframes"].castfocusheight*E.ResScale
+		
+		--Health Bar
+		local health = E.ContructHealthBar(self, true, nil)
+		health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
+		if POWERTHEME == true or USE_POWERBAR_OFFSET == true then
+			health:Point("BOTTOMLEFT", self, "BOTTOMLEFT", BORDER, BORDER + (POWERBAR_HEIGHT/2))
+		else
+			health:Point("BOTTOMLEFT", self, "BOTTOMLEFT", BORDER, BORDER + POWERBAR_HEIGHT)
+		end
+		
+		self.Health = health
+
+		--Power Bar
+		local power = E.ConstructPowerBar(self, true, nil)
+		if POWERTHEME == true or USE_POWERBAR_OFFSET == true then
+			power:Width(POWERBAR_WIDTH - BORDER*2)
+			power:Height(POWERBAR_HEIGHT - BORDER*2)
+			power:Point("CENTER", self, "BOTTOM", 0, BORDER + (POWERBAR_HEIGHT/2))
+			power:SetFrameStrata("MEDIUM")
+			power:SetFrameLevel(self:GetFrameLevel() + 3)
+		else
+			power:Point("TOPLEFT", health.backdrop, "BOTTOMLEFT", BORDER, -(BORDER + SPACING))
+			power:Point("BOTTOMRIGHT", self, "BOTTOMRIGHT", -BORDER, BORDER)
+		end					
+		
+		self.Power = power
+			
+		--Name
+		self:FontString("Name", FONT, FONTSIZE, "THINOUTLINE")
+		self.Name:Point("CENTER", health, "CENTER", 0, 2)
+		self.Name:SetShadowColor(0, 0, 0, 0)
+		self.Name.frequentUpdates = 0.5
+		self:Tag(self.Name, '[Elvui:getnamecolor][Elvui:namemedium]')		
+		
+		--Auras
+		if (unit == "focus" and C["unitframes"].focusdebuffs == true) then	
+			local debuffs = CreateFrame("Frame", nil, self)
+			debuffs.num = C["unitframes"].playtarbuffperrow
+			debuffs:SetWidth(PLAYER_WIDTH)
+			debuffs.spacing = E.Scale(SPACING)
+			debuffs.size = ((C["unitframes"].playtarwidth - (debuffs.spacing*(debuffs.num - 1))) / debuffs.num)*E.ResScale
+			debuffs:SetHeight(debuffs.size)
+			debuffs:Point("BOTTOM", self, "TOP", 0, SPACING)	
+			debuffs.initialAnchor = 'BOTTOMLEFT'
+			debuffs["growth-y"] = "UP"
+			debuffs["growth-x"] = "RIGHT"
 			debuffs.PostCreateIcon = E.PostCreateAura
 			debuffs.PostUpdateIcon = E.PostUpdateAura
 			debuffs.CustomFilter = E.AuraFilter
@@ -1460,7 +1552,7 @@ local function LoadHealLayout()
 	-- Focus
 	local focus = oUF:Spawn('focus', "ElvHeal_focus")
 	focus:Point("BOTTOMLEFT", ElvHeal_player, "TOPLEFT", 0, 42)
-	focus:Size(SMALL_WIDTH, SMALL_HEIGHT)
+	focus:Size(PLAYER_WIDTH, SMALL_HEIGHT)
 
 	-- Player's Pet
 	local pet = oUF:Spawn('pet', "ElvHeal_pet")

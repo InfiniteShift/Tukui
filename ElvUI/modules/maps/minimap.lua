@@ -21,19 +21,19 @@ function E.PostMinimapMove(frame)
 		ElvuiMinimapStatsLeft:ClearAllPoints()
 		ElvuiMinimapStatsLeft:Point("TOPLEFT", ElvuiMinimap, "BOTTOMLEFT", 0, -3)
 		ElvuiMinimapStatsRight:ClearAllPoints()
-		ElvuiMinimapStatsRight:Point("TOPRIGHT", ElvuiMinimap, "BOTTOMRIGHT", 0, -3)
+		ElvuiMinimapStatsRight:Point("TOPRIGHT", ElvuiMinimapStatsLeft, "BOTTOMRIGHT", 0, -3)
 		if RaidBuffReminder then
 			RaidBuffReminder:ClearAllPoints()
-			RaidBuffReminder:Point("TOPLEFT", ElvuiMinimapStatsLeft, "BOTTOMLEFT", 0, -3)
+			RaidBuffReminder:Point("TOPLEFT", ElvuiMinimapStatsRight, "BOTTOMLEFT", 0, -3)
 		end	
 	else
 		ElvuiMinimapStatsLeft:ClearAllPoints()
 		ElvuiMinimapStatsLeft:Point("BOTTOMLEFT", ElvuiMinimap, "TOPLEFT", 0, 3)
 		ElvuiMinimapStatsRight:ClearAllPoints()
-		ElvuiMinimapStatsRight:Point("BOTTOMRIGHT", ElvuiMinimap, "TOPRIGHT", 0, 3)	
+		ElvuiMinimapStatsRight:Point("BOTTOMRIGHT", ElvuiMinimapStatsLeft, "TOPRIGHT", 0, 3)	
 		if RaidBuffReminder then
 			RaidBuffReminder:ClearAllPoints()
-			RaidBuffReminder:Point("BOTTOMLEFT", ElvuiMinimapStatsLeft, "TOPLEFT", 0, 3)
+			RaidBuffReminder:Point("BOTTOMLEFT", ElvuiMinimapStatsRight, "TOPLEFT", 0, 3)
 		end		
 	end
 end

@@ -31,6 +31,8 @@ L["General Settings"] = true
 		L["Enable a bar accross the top of the screen, doing this will move the location and coords texts to that bar, and also allow for spaces nine and ten of the datatexts to be used."] = true
 	L["Lower Frame"] = true
 		L["Enable a bar accross the bottom of the screen, mostly for decoration."] = true
+	L["Skin Blizzard Frames"] = true
+		L["Enable Elvui style skins on Blizzard frames, such as Character Pane, Spellbook, etc. (WARNING! Still in BETA not all frames have skins yet."] = true
 		
 --Media
 L["Media"] = true

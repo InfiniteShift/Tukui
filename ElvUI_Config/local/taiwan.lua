@@ -49,7 +49,10 @@ L["General Settings"] = "一般設定"
 		L["Enable a bar accross the top of the screen, doing this will move the location and coords texts to that bar, and also allow for spaces nine and ten of the datatexts to be used."] = "啟用螢幕上方框架,  啟用可以讓你使用位置9 和 10"
 	L["Lower Frame"] = "下方框架"
 		L["Enable a bar accross the bottom of the screen, mostly for decoration."] = "啟用下方框架, 目前幾乎只為了裝飾"
+	L["Skin Blizzard Frames"] = true
+		L["Enable Elvui style skins on Blizzard frames, such as Character Pane, Spellbook, etc. (WARNING! Still in BETA not all frames have skins yet."] = true
 
+		
 --Media
 L["Media"] = "材質音效"
 	L["MEDIA_DESC"] = "為ElvUI設置字型、材質、顏色、音效"

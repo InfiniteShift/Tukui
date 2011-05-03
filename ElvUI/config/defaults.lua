@@ -38,6 +38,7 @@ DB["general"] = {
 	["sharpborders"] = true,
 	["upperpanel"] = false,
 	["lowerpanel"] = false,
+	["blizzardtextures"] = false,
 }
 
 DB["skin"] = {
@@ -55,7 +56,7 @@ DB["skin"] = {
 DB["unitframes"] = {
 	-- general options
 	["enable"] = true,                     -- do i really need to explain this?
-	["fontsize"] = 12,						-- default font height for unitframes
+	["fontsize"] = 13,						-- default font height for unitframes
 	["lowThreshold"] = 20,                 -- global low threshold, for low mana warning.
 	["targetpowerplayeronly"] = true,         -- enable power text on pvp target only
 	["showfocustarget"] = false,           -- show focus's target
@@ -83,9 +84,9 @@ DB["unitframes"] = {
 	
 	--frame sizes
 	["playtarwidth"] = 230,					--width of player/target frame
-	["playtarheight"] = 45,					--height of player/target frame
+	["playtarheight"] = 50,					--height of player/target frame
 	["smallwidth"] = 130,					--Width of TargetTarget, Focus, FocusTarget, Player's Pet frames
-	["smallheight"] = 35,					--Height of TargetTarget, Focus, FocusTarget, Player's Pet frames
+	["smallheight"] = 40,					--Height of TargetTarget, Focus, FocusTarget, Player's Pet frames
 	["arenabosswidth"] = 212,				--Width of Arena/Boss Frames
 	["arenabossheight"] = 43,				--Height of Arena/Boss Frames
 	["assisttankwidth"] = 120,				--Width of MainTank/MainAssist frames
@@ -102,7 +103,7 @@ DB["unitframes"] = {
 	["bossbuffs"] = true,
 	["arenadebuffs"] = true,
 	["bossdebuffs"] = true,
-	["playershowonlydebuffs"] = true, 		-- only show the players debuffs over the player frame, not buffs (playerauras must be true)
+	["playershowonlydebuffs"] = false, 		-- only show the players debuffs over the player frame, not buffs (playerauras must be true)
 	["playerdebuffsonly"] = true,			-- show the players debuffs on target, and any debuff in the whitelist (see debuffFilter.lua)
 	["totdebuffs"] = true,                -- enable tot debuffs (high reso only)
 	["focusdebuffs"] = true,              -- enable focus debuffs 
@@ -154,7 +155,7 @@ DB["raidframes"] = {
 	["debuffs"] = true,
 	["displayaggro"] = true,
 	["mini_powerbar"] = false,
-	["gridonly"] = true,
+	["gridonly"] = false,
 }
 
 DB["classtimer"] = {
@@ -230,7 +231,7 @@ DB["datatext"] = {
 	["crit"] = 0,
 	["manaregen"] = 0,
 	["masteryspell"] = false,	
-	["battleground"] = true,               -- enable 3 stats in battleground only that replace stat1,stat2,stat3.
+	["battleground"] = false,               -- enable 3 stats in battleground only that replace stat1,stat2,stat3.
 	["time24"] = true,                     -- set time to 24h format.
 	["localtime"] = true,                 -- set time to local time instead of server time.
 	["fontsize"] = 12,                     -- font size for panels.
@@ -240,13 +241,15 @@ DB["datatext"] = {
 DB["chat"] = {
 	["enable"] = true,                     -- blah
 	["whispersound"] = true,               -- play a sound when receiving whisper
-	["showbackdrop"] = true,				-- show a backdrop on the chat panels
+	["showbackdrop"] = false,				-- show a backdrop on the chat panels
 	["chatwidth"] = 348,					-- width of chat frame
 	["chatheight"] = 111,					-- height of chat frame
 	["fadeoutofuse"] = true,				-- fade chat text when out of use
 	["sticky"] = true,						-- when opening the chat edit box resort to previous channel
 	["combathide"] = "NONE",			-- Set to "Left", "Right", "Both", or "NONE"
 	["bubbles"] = true,							--skin blizzard chat bubbles
+	
+	["blahhh"] = true,                     -- lua error prevention for the time being
 }
 
 DB["tooltip"] = {

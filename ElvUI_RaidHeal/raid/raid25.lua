@@ -6,8 +6,8 @@ assert(oUF, "ElvUI was unable to locate oUF.")
 if not C["raidframes"].enable == true then return end
 if IsAddOnLoaded("ElvUI_Dps_Layout") then return end
 
-local RAID_WIDTH = E.Scale(59)*C["raidframes"].scale
-local RAID_HEIGHT = E.Scale(47)*C["raidframes"].scale
+local RAID_WIDTH = E.Scale(58)*C["raidframes"].scale
+local RAID_HEIGHT = E.Scale(44)*C["raidframes"].scale*1.1
 
 local BORDER = 2
 local POWERTHEME = C["raidframes"].mini_powerbar
@@ -15,7 +15,7 @@ local SPACING = 1
 
 local function Shared(self, unit)
 	local POWERBAR_WIDTH = RAID_WIDTH - (BORDER*2)
-	local POWERBAR_HEIGHT = 8
+	local POWERBAR_HEIGHT = 9
 		
 	-- Set Colors
 	self.colors = E.oUF_colors
@@ -262,7 +262,7 @@ oUF:Factory(function(self)
 		"columnSpacing", 3,
 		"columnAnchorPoint", "TOP"		
 	)
-	raid:Point("TOPLEFT", UIParent, "LEFT", 140, 120)		
+	raid:Point("TOPLEFT", UIParent, "LEFT", 138, 120)		
 	
 	local function ChangeVisibility(visibility)
 		if(visibility) then

@@ -6,15 +6,15 @@ assert(oUF, "ElvUI was unable to locate oUF.")
 if not C["raidframes"].enable == true == true or C["raidframes"].gridonly == true then return end
 if IsAddOnLoaded("ElvUI_Dps_Layout") then return end
 
-local RAID_WIDTH = E.Scale(57)*C["raidframes"].scale
-local RAID_HEIGHT = E.Scale(45)*C["raidframes"].scale
+local RAID_WIDTH = E.Scale(58)*C["raidframes"].scale
+local RAID_HEIGHT = E.Scale(44)*C["raidframes"].scale*1.1
 local POWERTHEME = C["raidframes"].mini_powerbar
 local BORDER = 2
 local SPACING = 1
 
 local function Shared(self, unit)
 	local POWERBAR_WIDTH = RAID_WIDTH - (BORDER*2)
-	local POWERBAR_HEIGHT = 8
+	local POWERBAR_HEIGHT = 9
 		
 	-- Set Colors
 	self.colors = E.oUF_colors
@@ -41,7 +41,7 @@ local function Shared(self, unit)
 		self:FontString("Name", C["media"].uffont, C["unitframes"].fontsize, "THINOUTLINE")
 		self.Name:SetPoint("CENTER", health, "CENTER")
 		self.Name.frequentUpdates = 0.5
-		self:Tag(self.Name, '[Elvui:getnamecolor][Elvui:namemedium]')	
+		self:Tag(self.Name, '[Elvui:getnamecolor][Elvui:nameshort]')	
 	else
 		--Health Bar
 		local health = E.ContructHealthBar(self, true, true)
@@ -83,7 +83,7 @@ local function Shared(self, unit)
 		if C["raidframes"].role == true then
 			local LFDRole = self:CreateTexture(nil, "OVERLAY")
 			LFDRole:Size(6, 6)
-			LFDRole:Point("TOP", self.Name, "BOTTOM", 0, -1)
+			LFDRole:Point("TOPRIGHT", self.Health, "TOPRIGHT", -2, -2)
 			LFDRole:SetTexture("Interface\\AddOns\\ElvUI\\media\\textures\\lfdicons.blp")
 			self.LFDRole = LFDRole
 		end
@@ -290,7 +290,7 @@ oUF:Factory(function(self)
 			"xoffset", 3
 		)		
 	end
-	party:SetPoint("TOPLEFT", UIParent, "LEFT", 140, 120)	
+	party:SetPoint("TOPLEFT", UIParent, "LEFT", 138, 120)	
 	
 	local partyToggle = CreateFrame("Frame")
 	partyToggle:RegisterEvent("PLAYER_ENTERING_WORLD")
