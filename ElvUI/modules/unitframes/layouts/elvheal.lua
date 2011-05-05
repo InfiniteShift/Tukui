@@ -1138,7 +1138,7 @@ local function Shared(self, unit)
 	end
 	
 	------------------------------------------------------------------------
-	--	TargetofTarget, Pet, PetTarget, Focus, FocusTarget
+	--	TargetofTarget, Pet, PetTarget, FocusTarget
 	------------------------------------------------------------------------
 	if (unit == "targettarget" or unit == "pet" or unit == "pettarget" or unit == "focustarget") then
 		local POWERBAR_WIDTH = C["unitframes"].smallwidth/1.5*E.ResScale
@@ -1241,13 +1241,15 @@ local function Shared(self, unit)
 		local CASTBAR_HEIGHT = C["unitframes"].castfocusheight*E.ResScale
 		
 		--Health Bar
-		local health = E.ContructHealthBar(self, true, nil)
+		local health = E.ContructHealthBar(self, true, true)
 		health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
 		if POWERTHEME == true or USE_POWERBAR_OFFSET == true then
 			health:Point("BOTTOMLEFT", self, "BOTTOMLEFT", BORDER, BORDER + (POWERBAR_HEIGHT/2))
 		else
 			health:Point("BOTTOMLEFT", self, "BOTTOMLEFT", BORDER, BORDER + POWERBAR_HEIGHT)
 		end
+		
+		health.value:Point("RIGHT", health, "RIGHT", -4, 0)
 		
 		self.Health = health
 
@@ -1268,7 +1270,7 @@ local function Shared(self, unit)
 			
 		--Name
 		self:FontString("Name", FONT, FONTSIZE, "THINOUTLINE")
-		self.Name:Point("CENTER", health, "CENTER", 0, 2)
+		self.Name:Point("LEFT", health, "LEFT", 4, 2)
 		self.Name:SetShadowColor(0, 0, 0, 0)
 		self.Name.frequentUpdates = 0.5
 		self:Tag(self.Name, '[Elvui:getnamecolor][Elvui:namemedium]')		
@@ -1356,7 +1358,14 @@ local function Shared(self, unit)
 		end
 
 		health.value:Point("TOPRIGHT", health, "TOPRIGHT", 0, -2)
+			
 		self.Health = health
+		
+		self:FontString("healthValue", FONT, FONTSIZE, "THINOUTLINE")
+		self.healthValue:Point("CENTER", health, "CENTER", 0, -2)
+		self.healthValue:SetShadowColor(0, 0, 0, 0)
+		self.healthValue.frequentUpdates = 0.5
+		self:Tag(self.healthValue, '|cff559655[Elvui:perhp]|r')
 		
 		--Power Bar
 		local power = E.ConstructPowerBar(self, true, true)

@@ -230,8 +230,14 @@ E.RaidDebuffs = {
 	[SpellName(92488)] = true, -- Gravity Crush
 
 	--Cho'gall
-	[SpellName(86028)] = true, -- Cho's Blast
-	[SpellName(86029)] = true, -- Gall's Blast
+	[SpellName(93204)] = true, --Conversion
+	[SpellName(91317)] = true, --Worshipping
+	[SpellName(82170)] = true, --Corruption: Absolute
+	[SpellName(81836)] = true, --Corruption: Accelerated
+	[SpellName(86028)] = true, --Cho's Blast (Fury of Cho'gall)
+	[SpellName(82411)] = true, --Debilitating Beams
+	[SpellName(82125)] = true, --Corruption: Malformation
+	[SpellName(93202)] = true, --Corruption: Sickness
 
 --Throne of the Four Winds
 	--Conclave of Wind

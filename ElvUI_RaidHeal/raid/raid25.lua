@@ -71,7 +71,7 @@ local function Shared(self, unit)
 	if C["raidframes"].role == true then
 		local LFDRole = self:CreateTexture(nil, "OVERLAY")
 		LFDRole:Size(6, 6)
-		LFDRole:Point("TOP", self.Name, "BOTTOM", 0, -1)
+		LFDRole:Point("TOPRIGHT", self.Health, "TOPRIGHT", -2, -2)
 		LFDRole:SetTexture("Interface\\AddOns\\ElvUI\\media\\textures\\lfdicons.blp")
 		self.LFDRole = LFDRole
 	end
@@ -157,9 +157,9 @@ local function Shared(self, unit)
 	-- Raid Debuffs
 	if C["raidframes"].debuffs == true then
 		local RaidDebuffs = CreateFrame('Frame', nil, self)
-		RaidDebuffs:Height(RAID_HEIGHT*0.6)
-		RaidDebuffs:Width(RAID_HEIGHT*0.6)
-		RaidDebuffs:Point('BOTTOM', self, 'BOTTOM', 0, 1)
+		RaidDebuffs:Height(RAID_HEIGHT*0.4)
+		RaidDebuffs:Width(RAID_HEIGHT*0.4)
+		RaidDebuffs:Point('CENTER', self, 'CENTER', 0, 0)
 		RaidDebuffs:SetFrameStrata("High")
 		RaidDebuffs:SetTemplate("Default")
 		
@@ -260,7 +260,7 @@ oUF:Factory(function(self)
 		"maxColumns", 5,
 		"unitsPerColumn", 5,
 		"columnSpacing", 3,
-		"columnAnchorPoint", "TOP"		
+		"columnAnchorPoint", "TOP"
 	)
 	raid:Point("TOPLEFT", UIParent, "LEFT", 138, 120)		
 	

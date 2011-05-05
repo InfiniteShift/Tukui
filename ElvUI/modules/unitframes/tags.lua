@@ -174,3 +174,10 @@ oUF.Tags['Elvui:namelong'] = function(unit)
 		end
 	end
 end
+
+oUF.Tags['Elvui:perhp'] = function(unit)
+	if not unit then return end
+	local min, max = UnitHealth(unit), UnitHealthMax(unit)
+	
+	return ('%d%%|r'):format(min / max * 100)
+end
