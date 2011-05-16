@@ -337,7 +337,7 @@ E.LoadUFFunctions = function(layout)
 		if not health.value then return end
 		
 		local header = health:GetParent():GetParent():GetName()
-		if header == "ElvuiHealParty" or header == "ElvuiDPSParty" or header == "ElvuiHealR6R25" or header == "ElvuiDPSR6R25" or header == "ElvuiHealR26R40" or header == "ElvuiDPSR26R40" then --Raid/Party Layouts
+		if header == "ElvuiHealParty" or header == "ElvuiDPSParty" or header == "ElvuiHealR6R25" or header == "ElvuiDPSR6R25" or header == "ElvuiHealR26R40" or header == "ElvuiDPSR26R40" or header == "ElvuiGridPets" then --Raid/Party Layouts
 			if not UnitIsConnected(unit) or UnitIsDead(unit) or UnitIsGhost(unit) then
 				if not UnitIsConnected(unit) then
 					health.value:SetText("|cffD7BEA5"..L.unitframes_ouf_offline.."|r")

@@ -6,7 +6,7 @@ assert(oUF, "ElvUI was unable to locate oUF.")
 if not C["raidframes"].enable == true == true or C["raidframes"].gridonly == true then return end
 if IsAddOnLoaded("ElvUI_Dps_Layout") then return end
 
-local RAID_WIDTH = E.Scale(58)*C["raidframes"].scale
+local RAID_WIDTH = E.Scale(55)*C["raidframes"].scale
 local RAID_HEIGHT = E.Scale(44)*C["raidframes"].scale*1.1
 local POWERTHEME = C["raidframes"].mini_powerbar
 local BORDER = 2
@@ -272,6 +272,7 @@ oUF:Factory(function(self)
 			"xoffset", 3,
 			'template', 'HealerPartyPets'
 		)	
+		party:SetPoint("TOPLEFT", UIParent, "LEFT", 138, 120)	
 	else
 		party = self:SpawnHeader("ElvuiHealParty", nil, "custom [@raid6,exists] hide;show", 
 			'oUF-initialConfigFunction', ([[
@@ -289,8 +290,9 @@ oUF:Factory(function(self)
 			"showPlayer", C["raidframes"].showplayerinparty,
 			"xoffset", 3
 		)		
+		party:SetPoint("TOPLEFT", UIParent, "LEFT", 138, 145)	
 	end
-	party:SetPoint("TOPLEFT", UIParent, "LEFT", 138, 120)	
+	
 	
 	local partyToggle = CreateFrame("Frame")
 	partyToggle:RegisterEvent("PLAYER_ENTERING_WORLD")

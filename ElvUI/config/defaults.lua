@@ -236,6 +236,8 @@ DB["datatext"] = {
 	["localtime"] = true,                 -- set time to local time instead of server time.
 	["fontsize"] = 12,                     -- font size for panels.
 	["classcolor"] = false,
+	
+	["panelcenter"] = true, 		   -- Center or Sides
 }
 
 DB["chat"] = {
@@ -276,7 +278,7 @@ DB["others"] = {
 	["rolllootframe"] = true,              -- reskin the roll frame to fit Elvui
 	["autogreed"] = true,                  -- auto-dez or auto-greed item at max level.	
 	["sellgrays"] = true,                  -- automaticly sell grays?
-	["autorepair"] = true,                 -- automaticly repair?
+	["autorepair"] = false,                 -- automaticly repair?
 	
 	["buffreminder"] = true,                     -- this is now the new innerfire warning script for all armor/aspect class.
 	["remindersound"] = true,                      -- enable warning sound notification for reminder.

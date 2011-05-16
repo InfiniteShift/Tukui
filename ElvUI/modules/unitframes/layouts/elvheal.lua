@@ -507,7 +507,7 @@ local function Shared(self, unit)
 					bars.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 					bars.backdrop:SetFrameLevel(bars:GetFrameLevel() - 1)
 					
-					bars:SetScript("OnShow", function()
+					--[[bars:SetScript("OnShow", function()
 						if USE_POWERBAR_OFFSET then
 							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -(BORDER+POWERBAR_HEIGHT+SPACING))
 						else
@@ -522,7 +522,7 @@ local function Shared(self, unit)
 							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
 						end
 						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
-					end)			
+					end)			]]
 				end
 				
 				if E.myclass == "PALADIN" then
@@ -582,7 +582,7 @@ local function Shared(self, unit)
 					runes.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 					runes.backdrop:SetFrameLevel(runes:GetFrameLevel() - 1)
 
-					runes:HookScript("OnShow", function()
+					--[[runes:HookScript("OnShow", function()
 						if USE_POWERBAR_OFFSET then
 							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -(BORDER+POWERBAR_HEIGHT+SPACING))
 						else
@@ -597,7 +597,7 @@ local function Shared(self, unit)
 							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
 						end
 						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
-					end)	
+					end)]]	
 				end
 				
 				self.Runes = runes
@@ -661,7 +661,7 @@ local function Shared(self, unit)
 					totems.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 					totems.backdrop:SetFrameLevel(totems:GetFrameLevel() - 1)
 					
-					totems:HookScript("OnShow", function()
+					--[[totems:HookScript("OnShow", function()
 						if USE_POWERBAR_OFFSET then
 							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -(BORDER+POWERBAR_HEIGHT+SPACING))
 						else
@@ -676,7 +676,7 @@ local function Shared(self, unit)
 							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
 						end
 						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
-					end)
+					end)]]
 				end
 				
 				self.TotemBar = totems			
@@ -719,7 +719,7 @@ local function Shared(self, unit)
 				eclipseBar.backdrop:Point("BOTTOMRIGHT", lunarBar, "BOTTOMRIGHT", BORDER, -BORDER)
 				eclipseBar.backdrop:SetFrameLevel(eclipseBar:GetFrameLevel() - 1)
 				
-				if not MINI_CLASSBAR then
+				--[[if not MINI_CLASSBAR then
 					eclipseBar:HookScript("OnShow", function()
 						if USE_POWERBAR_OFFSET then
 							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -(BORDER+POWERBAR_HEIGHT+SPACING))
@@ -736,7 +736,7 @@ local function Shared(self, unit)
 						end
 						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
 					end)
-				end
+				end]]
 				
 				self.EclipseBar = eclipseBar
 				self.EclipseBar.PostUpdatePower = E.EclipseDirection

@@ -40,7 +40,8 @@ ns.Filger_Spells = {
 			Interval = 4,
 			Mode = "ICON",
 			setPoint = { "RIGHT", UIParent, "CENTER", -160, -20 },
-
+			
+			
 			-- Eclipse (Lunar)/Mondfinsternis
 			{ spellID = 48518, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Eclipse (Solar)/Sonnenfinsternis
@@ -53,14 +54,16 @@ ns.Filger_Spells = {
 			{ spellID = 61336, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Tree of Life/Baum des Lebens
 			{ spellID = 33891, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
-			-- Clearcasting/Freizaubern
-			{ spellID = 16870, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Innervate/Anregen
 			{ spellID = 29166, size = 47, unitId = "player", caster = "all", filter = "BUFF" },
 			-- Barkskin/Baumrinde
 			{ spellID = 22812, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
+			-- Power Torrent
+			{ spellID = 74241, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Lifebloom
 			{ spellID = 33763, size = 47, unitId = "focus", caster = "player", filter = "BUFF" },
+			-- Clearcasting/Freizaubern
+			{ spellID = 16870, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 		},
 		{
 			Name = "T_DEBUFF_ICON",
@@ -419,7 +422,9 @@ ns.Filger_Spells = {
 			Interval = 4,
 			Mode = "ICON",
 			setPoint = { "RIGHT", UIParent, "CENTER", -160, -20 },
-
+			
+			-- Inquisition
+			{ spellID = 84963, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Judgements of the Pure
 			{ spellID = 53671, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Holy Shield
@@ -439,7 +444,8 @@ ns.Filger_Spells = {
 			Interval = 4,
 			Mode = "ICON",
 			setPoint = { "LEFT", UIParent, "CENTER", 160, -20 },
-
+			
+			{ spellID = 88826, size = 47, unitId = "target", caster = "all", filter = "DEBUFF" },
 			-- Hammer of Justice/Hammer der Gerechtigkeit
 			{ spellID = 853, size = 47, unitId = "target", caster = "all", filter = "DEBUFF" },
 			-- Judgement of Light
@@ -759,6 +765,8 @@ ns.Filger_Spells = {
 			{ spellID = 86206, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			--Lightning Rod (Al'Akir)
 			{ spellID = 89666, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			--Wrack (Sinestra)
+			{ spellID = 92956, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			
 			----[[ Icecrown Citadel ]]----
 			--Infest (Lich King)

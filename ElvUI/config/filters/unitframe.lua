@@ -186,29 +186,36 @@ E.RaidDebuffs = {
 	[SpellName(78199)] = true, -- Sweltering Armor
 
 	--Omintron Defense System
-	[SpellName(91433)] = true, --Lightning Conductor
+	[SpellName(79501)] = true, --Acquiring Target
+	[SpellName(79505)] = true, --Acquiring Target
+	[SpellName(79835)] = true, --Poison Soaked Shell
+	[SpellName(79888)] = true, --Lightning Conductor
 	[SpellName(91521)] = true, --Incineration Security Measure
-	[SpellName(80094)] = true, --Fixate 
-
+	[SpellName(80093)] = true, --Fixate
+	
 	--Maloriak
-	[SpellName(77699)] = true, -- Flash Freeze
-	[SpellName(77760)] = true, -- Biting Chill
-
+	[SpellName(77760)] = true, --Biting Chill
+	[SpellName(77699)] = true, --Flash Freeze
+	[SpellName(92971)] = true, --Consuming Flames
+	[SpellName(92987)] = true, --Dark Sludge
+	[SpellName(92754)] = true, --Engulfing Darkness
+		
 	--Atramedes
-	[SpellName(92423)] = true, -- Searing Flame
-	[SpellName(92485)] = true, -- Roaring Flame
-	[SpellName(92407)] = true, -- Sonic Breath
-
+	[SpellName(78092)] = true, --Tracking
+	[SpellName(92485)] = true, --Roaring Flame
+	
 	--Chimaeron
-	[SpellName(82881)] = true, -- Break
-	[SpellName(89084)] = true, -- Low Health
-
+	[SpellName(89084)] = true, --Low Health
+	[SpellName(82881)] = true, --Break
+	
 	--Nefarian
-
-	--Sinestra
-	[SpellName(92956)] = true, --Wrack
+	[SpellName(79318)] = true, --Dominion
+	[SpellName(79339)] = true, --Explosive Cinders	
 
 --The Bastion of Twilight
+	--Halfus Wyrmbreaker
+	[SpellName(39171)] = true, -- Malevolent Strikes
+
 	--Valiona & Theralion
 	[SpellName(92878)] = true, -- Blackout
 	[SpellName(86840)] = true, -- Devouring Flames
@@ -216,9 +223,6 @@ E.RaidDebuffs = {
 	[SpellName(93051)] = true, -- Twilight Shift
 	[SpellName(92886)] = true, -- Twilight Zone
 	[SpellName(88518)] = true, -- Twilight Meteorite
-
-	--Halfus Wyrmbreaker
-	[SpellName(39171)] = true, -- Malevolent Strikes
 
 	--Twilight Ascendant Council
 	[SpellName(92511)] = true, -- Hydro Lance
@@ -238,11 +242,16 @@ E.RaidDebuffs = {
 	[SpellName(82411)] = true, --Debilitating Beams
 	[SpellName(82125)] = true, --Corruption: Malformation
 	[SpellName(93202)] = true, --Corruption: Sickness
+	
+	--Sinestra
+	[SpellName(92956)] = true, --Wrack
+
 
 --Throne of the Four Winds
 	--Conclave of Wind
 		--Nezir <Lord of the North Wind>
 		[SpellName(93131)] = true, --Ice Patch
+		[SpellName(84645)] = true, --Wind Chill
 		--Anshal <Lord of the West Wind>
 		[SpellName(86206)] = true, --Soothing Breeze
 		[SpellName(93122)] = true, --Toxic Spores
