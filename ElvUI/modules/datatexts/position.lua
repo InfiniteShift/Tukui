@@ -52,12 +52,12 @@ function E.PP(p, obj)
 	
 	if ElvuiMinimap then
 		if p == 7 then
-			obj:SetHeight(mapleft:GetHeight())
-			obj:SetPoint("CENTER", mapleft, 0, 0)
+			obj:SetHeight(ElvuiMinimapStatsLeft:GetHeight())
+			obj:SetPoint("CENTER", ElvuiMinimapStatsLeft, 1, 0)
 			if t ~= true then obj:SetParent(mapleft) else obj:GetParent():SetParent(mapleft) end
 		elseif p == 8 then
 			obj:SetHeight(ElvuiMinimapStatsRight:GetHeight())
-			obj:SetPoint("CENTER", ElvuiMinimapStatsRight, 0, 0)
+			obj:SetPoint("BOTTOM", ElvuiMinimapStatsRight, "BOTTOM", 0, 0)
 			if t ~= true then obj:SetParent(mapright) else obj:GetParent():SetParent(mapright) end
 		end
 	end

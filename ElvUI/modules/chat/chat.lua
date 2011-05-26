@@ -52,8 +52,16 @@ FriendsMicroButton:Kill()
 ChatFrameMenuButton:Kill()
 
 local EditBoxDummy = CreateFrame("Frame", "EditBoxDummy", UIParent)
-EditBoxDummy:SetAllPoints(ElvuiInfoLeft)
-
+if C["datatext"].panelpos ~= "CENTER" then
+	EditBoxDummy:SetAllPoints(ElvuiInfoLeft)
+elseif C["chat"].showbackdrop == true then
+	EditBoxDummy:SetAllPoints(ElvuiChatLTBG)
+else
+	EditBoxDummy:SetHeight(ElvuiInfoLeft:GetHeight())
+	EditBoxDummy:SetWidth(ElvuiInfoLeft:GetWidth() + ElvuiInfoRightLButton:GetWidth() + 2)
+	EditBoxDummy:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", E.Scale(4), E.Scale(4))
+end
+	
 -- set the chat style
 local function SetChatStyle(frame)
 	local id = frame:GetID()

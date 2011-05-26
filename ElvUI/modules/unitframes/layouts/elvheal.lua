@@ -449,7 +449,7 @@ local function Shared(self, unit)
 				
 				if MINI_CLASSBAR then
 					bars:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 6), 0)
-					bars:SetFrameStrata("HIGH")
+					bars:SetFrameStrata("MEDIUM")
 				else
 					bars:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
 					bars:SetFrameStrata("LOW")
@@ -506,23 +506,6 @@ local function Shared(self, unit)
 					bars.backdrop:Point("TOPLEFT", -BORDER, BORDER)
 					bars.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 					bars.backdrop:SetFrameLevel(bars:GetFrameLevel() - 1)
-					
-					--[[bars:SetScript("OnShow", function()
-						if USE_POWERBAR_OFFSET then
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -(BORDER+POWERBAR_HEIGHT+SPACING))
-						else
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-						end
-						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-					end)
-					bars:HookScript("OnHide", function()	
-						if USE_POWERBAR_OFFSET then
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -BORDER)
-						else
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-						end
-						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
-					end)			]]
 				end
 				
 				if E.myclass == "PALADIN" then
@@ -541,7 +524,7 @@ local function Shared(self, unit)
 					CLASSBAR_WIDTH = CLASSBAR_WIDTH * 3/2 --Multiply by reciprocal to reset previous setting
 					CLASSBAR_WIDTH = CLASSBAR_WIDTH * 4/5
 					runes:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 8), 0)
-					runes:SetFrameStrata("HIGH")
+					runes:SetFrameStrata("MEDIUM")
 				else
 					runes:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
 					runes:SetFrameStrata("LOW")
@@ -581,23 +564,6 @@ local function Shared(self, unit)
 					runes.backdrop:Point("TOPLEFT", -BORDER, BORDER)
 					runes.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 					runes.backdrop:SetFrameLevel(runes:GetFrameLevel() - 1)
-
-					--[[runes:HookScript("OnShow", function()
-						if USE_POWERBAR_OFFSET then
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -(BORDER+POWERBAR_HEIGHT+SPACING))
-						else
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-						end
-						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-					end)
-					runes:HookScript("OnHide", function()
-						if USE_POWERBAR_OFFSET then
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -BORDER)
-						else
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-						end
-						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
-					end)]]	
 				end
 				
 				self.Runes = runes
@@ -613,7 +579,7 @@ local function Shared(self, unit)
 					CLASSBAR_WIDTH = CLASSBAR_WIDTH * 3/2 --Multiply by reciprocal to reset previous setting
 					CLASSBAR_WIDTH = CLASSBAR_WIDTH * 4/5
 					totems:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 6), 0)
-					totems:SetFrameStrata("HIGH")			
+					totems:SetFrameStrata("MEDIUM")			
 				end
 				totems:Width(CLASSBAR_WIDTH)
 				totems:Height(POWERBAR_HEIGHT - (BORDER*2))
@@ -660,23 +626,6 @@ local function Shared(self, unit)
 					totems.backdrop:Point("TOPLEFT", -BORDER, BORDER)
 					totems.backdrop:Point("BOTTOMRIGHT", BORDER, -BORDER)
 					totems.backdrop:SetFrameLevel(totems:GetFrameLevel() - 1)
-					
-					--[[totems:HookScript("OnShow", function()
-						if USE_POWERBAR_OFFSET then
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -(BORDER+POWERBAR_HEIGHT+SPACING))
-						else
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-						end
-						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-					end)
-					totems:HookScript("OnHide", function()
-						if USE_POWERBAR_OFFSET then
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -BORDER)
-						else
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-						end
-						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)		
-					end)]]
 				end
 				
 				self.TotemBar = totems			
@@ -690,7 +639,7 @@ local function Shared(self, unit)
 					eclipseBar:SetFrameStrata("LOW")
 				else
 					eclipseBar:Point("LEFT", health.backdrop, "TOPLEFT", (BORDER*2 + 4), 0)
-					eclipseBar:SetFrameStrata("HIGH")						
+					eclipseBar:SetFrameStrata("MEDIUM")						
 				end
 				eclipseBar:Width(CLASSBAR_WIDTH)
 				eclipseBar:Height(POWERBAR_HEIGHT - (BORDER*2))
@@ -719,25 +668,6 @@ local function Shared(self, unit)
 				eclipseBar.backdrop:Point("BOTTOMRIGHT", lunarBar, "BOTTOMRIGHT", BORDER, -BORDER)
 				eclipseBar.backdrop:SetFrameLevel(eclipseBar:GetFrameLevel() - 1)
 				
-				--[[if not MINI_CLASSBAR then
-					eclipseBar:HookScript("OnShow", function()
-						if USE_POWERBAR_OFFSET then
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -(BORDER+POWERBAR_HEIGHT+SPACING))
-						else
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-						end
-						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -(BORDER+POWERBAR_HEIGHT+SPACING))
-					end)
-					eclipseBar:HookScript("OnHide", function()
-						if USE_POWERBAR_OFFSET then
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -(BORDER+POWERBAR_OFFSET), -BORDER)
-						else
-							health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
-						end
-						health:Point("TOPLEFT", self, "TOPLEFT", PORTRAIT_WIDTH+BORDER, -BORDER)
-					end)
-				end]]
-				
 				self.EclipseBar = eclipseBar
 				self.EclipseBar.PostUpdatePower = E.EclipseDirection
 			end
@@ -755,7 +685,7 @@ local function Shared(self, unit)
 		altpower:SetStatusBarTexture(NORMTEX)
 		altpower:GetStatusBarTexture():SetHorizTile(false)
 		altpower:EnableMouse(true)
-		altpower:SetFrameStrata("HIGH")
+		altpower:SetFrameStrata("MEDIUM")
 		altpower.PostUpdate = E.AltPowerBarPostUpdate
 		altpower:Point("TOPLEFT", ElvuiInfoLeft, "TOPLEFT", BORDER, -BORDER)
 		altpower:Point("BOTTOMRIGHT", ElvuiInfoLeft, "BOTTOMRIGHT", -BORDER, BORDER)
@@ -1004,7 +934,7 @@ local function Shared(self, unit)
 		if MINI_CLASSBAR then
 			CLASSBAR_WIDTH = CLASSBAR_WIDTH * 4/5
 			combo:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 6), 0)
-			combo:SetFrameStrata("HIGH")
+			combo:SetFrameStrata("MEDIUM")
 		else
 			combo:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
 			combo:SetFrameStrata("LOW")
@@ -1057,7 +987,7 @@ local function Shared(self, unit)
 			the combobar is movable with the /moveele command, this should make it work correctly only 
 			after a reloadui.]]
 			combo:HookScript("OnShow", function()		
-				if ElementsPos and HealComboBar and ElementsPos["HealComboBar"]["moved"] and E.CreatedMoveEleFrames["HealComboBar"] then return end
+				if ElementsPos and HealComboBar and ElementsPos["HealComboBar"]["moved"] == true and E.CreatedMoveEleFrames["HealComboBar"] then return end
 				combo:ClearAllPoints()
 				combo:Point("BOTTOMLEFT", health.backdrop, "TOPLEFT", BORDER, BORDER+SPACING)
 				
@@ -1068,7 +998,7 @@ local function Shared(self, unit)
 			end)
 		else
 			combo:HookScript("OnShow", function()
-				if ElementsPos and HealComboBar and ElementsPos["HealComboBar"]["moved"] and E.CreatedMoveEleFrames["HealComboBar"] then return end
+				if ElementsPos and HealComboBar and ElementsPos["HealComboBar"]["moved"] == true and E.CreatedMoveEleFrames["HealComboBar"] then return end
 				combo:ClearAllPoints()
 				combo:Point("CENTER", health.backdrop, "TOP", -(BORDER*3 + 6), 0)
 
@@ -1501,7 +1431,7 @@ local function Shared(self, unit)
 	------------------------------------------------------------------------
 	--	Main tanks and Main Assists
 	------------------------------------------------------------------------
-	if unit == "raid" or unit == "raidtarget" then
+	if unit == "maintank" or unit == "mainassist" or unit == "maintanktarget" or unit == "mainassisttarget" then
 		--Health Bar
 		local health = E.ContructHealthBar(self, true, nil)
 		health:Point("TOPRIGHT", self, "TOPRIGHT", -BORDER, -BORDER)
@@ -1521,8 +1451,8 @@ local function Shared(self, unit)
 	------------------------------------------------------------------------
 	if unit ~= "party" then
 		local x = CreateFrame("Frame", nil, self)
-		x:SetFrameStrata("HIGH")
-		x:SetFrameLevel(20)
+		x:SetFrameStrata("MEDIUM")
+		x:SetFrameLevel(50)
 		local RaidIcon = x:CreateTexture(nil, "OVERLAY")
 		RaidIcon:SetTexture("Interface\\AddOns\\ElvUI\\media\\textures\\raidicons.blp") 
 		RaidIcon:Size(18, 18)
@@ -1582,7 +1512,7 @@ local function LoadHealLayout()
 		for i = 1, 5 do
 			arena[i] = oUF:Spawn("arena"..i, "ElvHealArena"..i)
 			if i == 1 then
-				arena[i]:Point("BOTTOMLEFT", ChatRBackground2, "TOPLEFT", -80, 285)
+				arena[i]:Point("BOTTOMLEFT", ChatRBackground2, "TOPLEFT", -120, 255)
 			else
 				arena[i]:Point("BOTTOM", arena[i-1], "TOP", 0, 38)
 			end
@@ -1595,7 +1525,7 @@ local function LoadHealLayout()
 		for i = 1, MAX_BOSS_FRAMES do
 			boss[i] = oUF:Spawn("boss"..i, "ElvHealBoss"..i)
 			if i == 1 then
-				boss[i]:Point("BOTTOMLEFT", ChatRBackground2, "TOPLEFT", -80, 285)
+				boss[i]:Point("BOTTOMLEFT", ChatRBackground2, "TOPLEFT", -120, 255)
 			else
 				boss[i]:Point('BOTTOM', boss[i-1], 'TOP', 0, 38)             
 			end

@@ -66,11 +66,26 @@ if C["skin"].embedright == "Recount" then
 	Recount_Skin:SetScript("OnEvent", function(self)
 		self:UnregisterAllEvents()
 		self = nil
-
+		
 		Recount_MainWindow:ClearAllPoints()
 		Recount_MainWindow:SetPoint("TOPLEFT", ChatRBackground2,"TOPLEFT", 0, 7)
 		Recount_MainWindow:SetPoint("BOTTOMRIGHT", ChatRBackground2,"BOTTOMRIGHT", 0, 0)
 		Recount.db.profile.FrameStrata = "4-HIGH"
 		Recount.db.profile.MainWindowWidth = (C["chat"].chatwidth - 4)	
+		
+		if C["datatext"].panelpos == "CENTER" then
+			Recount_MainWindow:SetHeight(Recount_MainWindow:GetHeight())
+			Recount_MainWindow:SetWidth(Recount_MainWindow:GetWidth())
+			Recount_MainWindow:ClearAllPoints()
+			Recount_MainWindow:SetPoint("BOTTOMRIGHT", UIParent,"BOTTOMRIGHT", -4, 4)
+		end
+	end)
+	
+	ElvuiInfoRightLButton:SetScript("OnMouseDown", function(self, btn)
+		if Recount.MainWindow:IsShown() then
+			Recount.MainWindow:Hide()
+		else
+			Recount.MainWindow:Show()
+		end
 	end)
 end

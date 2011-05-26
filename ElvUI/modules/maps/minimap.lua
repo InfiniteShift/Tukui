@@ -18,19 +18,15 @@ function E.PostMinimapMove(frame)
 	end
 	
 	if point:match("TOP") then
-		ElvuiMinimapStatsLeft:ClearAllPoints()
-		ElvuiMinimapStatsLeft:Point("TOPLEFT", ElvuiMinimap, "BOTTOMLEFT", 0, -3)
 		ElvuiMinimapStatsRight:ClearAllPoints()
-		ElvuiMinimapStatsRight:Point("TOPRIGHT", ElvuiMinimapStatsLeft, "BOTTOMRIGHT", 0, -3)
+		ElvuiMinimapStatsRight:Point("TOP", ElvuiMinimap, "BOTTOM", 0, -3)
 		if RaidBuffReminder then
 			RaidBuffReminder:ClearAllPoints()
 			RaidBuffReminder:Point("TOPLEFT", ElvuiMinimapStatsRight, "BOTTOMLEFT", 0, -3)
 		end	
 	else
-		ElvuiMinimapStatsLeft:ClearAllPoints()
-		ElvuiMinimapStatsLeft:Point("BOTTOMLEFT", ElvuiMinimap, "TOPLEFT", 0, 3)
 		ElvuiMinimapStatsRight:ClearAllPoints()
-		ElvuiMinimapStatsRight:Point("BOTTOMRIGHT", ElvuiMinimapStatsLeft, "TOPRIGHT", 0, 3)	
+		ElvuiMinimapStatsRight:Point("BOTTOMRIGHT", ElvuiMinimap, "TOPRIGHT", 0, 3)	
 		if RaidBuffReminder then
 			RaidBuffReminder:ClearAllPoints()
 			RaidBuffReminder:Point("BOTTOMLEFT", ElvuiMinimapStatsRight, "TOPLEFT", 0, 3)
@@ -143,6 +139,8 @@ local menuList = {
 		end
 		PlayerTalentFrame_Toggle()
 	end},
+	{text = TIMEMANAGER_TITLE,
+	func = function() ToggleFrame(TimeManagerFrame) end},
     {text = ACHIEVEMENT_BUTTON,
     func = function() ToggleAchievementFrame() end},
     {text = QUESTLOG_BUTTON,
@@ -166,6 +164,8 @@ local menuList = {
     func = function() ToggleFrame(LFDParentFrame) end},
     {text = L_LFRAID,
     func = function() ToggleFrame(LFRParentFrame) end},
+	{text = ENCOUNTER_JOURNAL,
+	func = function() ToggleFrame(EncounterJournal) end},
     {text = HELP_BUTTON,
     func = function() ToggleHelpFrame() end},
     {text = L_CALENDAR,

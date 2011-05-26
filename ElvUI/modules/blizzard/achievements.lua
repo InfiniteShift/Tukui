@@ -4,7 +4,7 @@ local E, C, L, DB = unpack(select(2, ...)) -- Import Functions/Constants, Config
 local AchievementHolder = CreateFrame("Frame", "AchievementHolder", UIParent)
 AchievementHolder:SetWidth(180)
 AchievementHolder:SetHeight(20)
-AchievementHolder:SetPoint("CENTER", UIParent, "CENTER", 0, 170)
+AchievementHolder:SetPoint("CENTER", UIParent, "CENTER", 0, -150)
 
 local pos = "TOP"
 

@@ -182,7 +182,8 @@ local function Shared(self, unit)
 		RaidDebuffs:Width(RAID_HEIGHT*0.6)
 		RaidDebuffs:Point('BOTTOM', self, 'BOTTOM', 0, 1)
 		RaidDebuffs:SetFrameLevel(self:GetFrameLevel() + 2)
-		RaidDebuffs:SetFrameStrata("High")
+		RaidDebuffs:SetFrameStrata("MEDIUM")
+		RaidDebuffs:SetFrameLevel(50)
 		
 		RaidDebuffs:SetTemplate("Default")
 		
@@ -335,6 +336,11 @@ oUF:Factory(function(self)
 				else
 					ChangeVisibility("custom [@raid6,noexists][@raid26,exists] hide;show")
 				end
+			end
+			if inInstance and instanceType == "raid" and maxPlayers == 10 then
+				raid:SetAttribute("groupFilter", "1,2")
+			else
+				raid:SetAttribute("groupFilter", "1,2,3,4,5")
 			end
 		else
 			self:RegisterEvent("PLAYER_REGEN_ENABLED")

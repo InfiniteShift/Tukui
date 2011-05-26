@@ -90,9 +90,9 @@ local function UpdateTank(self)
 end
 
 local function UpdateCaster(self)
-	local spellcrit = GetSpellCritChance(1)
-
-	Text:SetFormattedText(displayFloatString, L.datatext_playercrit, spellcrit)
+	local spellhaste = UnitSpellHaste("player")
+	
+	Text:SetFormattedText(displayFloatString, L.datatext_playerhaste, spellhaste)
 	--Setup Tooltip
 	self:SetAllPoints(Text)
 end

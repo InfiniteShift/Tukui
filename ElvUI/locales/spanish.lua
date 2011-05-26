@@ -23,6 +23,7 @@ if E.client == "esES" then
 	L.disband = "Disolviendo grupo."
 	L.chat_trade = TRADE
 	
+	L.datatext_playerhaste = "Celeridad: "
 	L.datatext_download = "Descarga: "
 	L.datatext_bandwidth = "Ancho de banda: "
 	L.datatext_noguild = "Sin hermandad"
@@ -142,8 +143,8 @@ if E.client == "esES" then
 	L.core_autoinv_enable = "Autoinvitar ON: invitar"
 	L.core_autoinv_enable_c = "Autoinvitar ON: "
 	L.core_autoinv_disable = "Autoinvitar OFF"
-	L.core_welcome1 = "Bienvenido a la edición de |cff1784d1Elv of Elvui|r, versión "
-	L.core_welcome2 = "Escribe |cff00FFFF/uihelp|r para más ayuda, escribe |cff00FFFF/Elvui|r para configurar, o visit http://www.tukui.org/forums/forum.php?id=84"
+	L.core_welcome1 = "Bienvenido a la edición de |cffff7d0aShifte|r de |cff1784d1ElvUI|r, versión %s"
+	L.core_welcome2 = "Escribe |cff1784d1/uihelp|r para más ayuda, escribe |cff1784d1/elvui|r, para configurar, o visit http://www.tukui.org/forums/forum.php?id=84"
  
 	L.core_uihelp1 = "|cff00ff00Comandos Generales|r"
 	L.core_uihelp2 = "|cff1784d1/tracker|r - Elvui Arena Enemy Cooldown Tracker - Low-memory enemy PVP cooldown tracker. (Solo Iconos)"

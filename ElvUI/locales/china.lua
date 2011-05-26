@@ -23,6 +23,7 @@ if E.client == "zhCN" then
 	L.disband = "正在解散队伍."
 	L.chat_trade = TRADE
 	
+	L.datatext_playerhaste = "趕快: "
 	L.datatext_download = "Download: "
 	L.datatext_bandwidth = "Bandwidth: "
 	L.datatext_noguild = "没有工会"

@@ -43,11 +43,11 @@ ns.Filger_Spells = {
 			
 			
 			-- Eclipse (Lunar)/Mondfinsternis
-			{ spellID = 48518, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
+			--{ spellID = 48518, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Eclipse (Solar)/Sonnenfinsternis
-			{ spellID = 48517, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
-			-- Shooting Stars/Sternschnuppen
-			{ spellID = 93400, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
+			--{ spellID = 48517, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
+			-- Lunar Shower
+			{ spellID = 81192, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Savage Roar/Wildes Brüllen
 			{ spellID = 52610, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Survival Instincts/Überlebensinstinkte
@@ -113,6 +113,18 @@ ns.Filger_Spells = {
 			{ spellID = 339, size = 32, barWidth = 200, unitId = "focus", caster = "all", filter = "DEBUFF" },
 			-- Cyclone/Wirbelsturm
 			{ spellID = 33786, size = 32, barWidth = 200, unitId = "focus", caster = "all", filter = "DEBUFF" },
+		},
+		{
+			Name = "Starsurge",
+			Direction = "RIGHT",
+			Interval = 4,
+			Mode = "ICON",
+			setPoint = { "CENTER", UIParent, "CENTER", 0, -80 },
+			
+			-- Starsurge
+			{ spellID = 78674, size = 32, filter = "CD" },
+			-- Shooting Stars/Sternschnuppen
+			{ spellID = 93400, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
 		},
 	},
 	["HUNTER"] = {

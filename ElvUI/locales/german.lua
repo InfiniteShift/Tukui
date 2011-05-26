@@ -2,6 +2,46 @@
 local E, C, L, DB = unpack(select(2, ...)) -- Import Functions/Constants, Config, Locales
 
 if E.client == "deDE" then
+	L.ElvUIInstall_page1_subtitle = "Willkommen bei ElvUI Version %s!"
+	L.ElvUIInstall_page1_desc1 = "Dieser Installationsprozess wird Ihnen helfen, die Funktionen von ElvUI für Ihre Benutzeroberflächebesser kennenzulernen"
+	L.ElvUIInstall_page1_desc2 = "Sie können den Befehl /uihelp benutzen, um eine kleine Liste aller Befehle zu erhalten.Die Ingame-Konfiguration können Sie entweder mit /ec oder /elvui aufrufen.Drücken Sie 'Schritt überspringen', um zum nachsten Schritt zu gelangen."
+	L.ElvUIInstall_page1_button1 = "Schritt überspringen"
+
+	L.ElvUIInstall_page2_subtitle = "CVars"
+	L.ElvUIInstall_page2_desc1 = "Dieser Installationsprozess richtet alle wichtigen Cvars Ihres World of Warcrafts ein,um eine problemlose Nutzung zu ermöglichen.."
+	L.ElvUIInstall_page2_desc2 = "Klicke 'Installiere CVars' um die CVars einzurichten."
+	L.ElvUIInstall_page2_button1 = "Installiere CVars"
+
+	L.ElvUIInstall_page3_subtitle = "Chat"
+	L.ElvUIInstall_page3_desc1 = "Dieser Installationsprozess richtet Ihre Chatfenster, Positionen der Fenster, sowiedie Namen der Chatfenster ein."
+	L.ElvUIInstall_page3_desc2 = "Klicke 'Installiere Chateinstellungen' um die Installation der Chatfenster zu beginnen.Sie müssen diesen Schritt ausführen, um eine korrekte Installation der Chatfenster zu erhalten."
+	L.ElvUIInstall_page3_button1 = "Installiere Chateinstellungen"
+
+	L.ElvUIInstall_page4_subtitle = "Auflösung"
+	L.ElvUIInstall_page4_desc1 = "Ihre derzeitige Auflösung ist: %sElvUI hat automatisch für sie %s gewählt(Basierend auf Ihrer Bildschirmauflösung)."
+	L.ElvUIInstall_page4_desc2 = "Dieser Installationsprozess steuert die Einstellung Ihrer Aktionsleisten und Ihrer Einheitenfenster.Sie können diese in der In-Game Konfiguration auch selbst ändern."
+	L.ElvUIInstall_Low = "Low"
+	L.ElvUIInstall_High = "High"
+
+	L.ElvUIInstall_page5_subtitle = "Aktionsleisten"
+	L.ElvUIInstall_page5_desc1 = "Nach der Einrichtung und Installation der Aktionsleisten können Sie diese durch den 'L' Knopf am unteren linken Chatfenster verschieben."
+	L.ElvUIInstall_page5_desc2 = "Um schnelle Tastenkürzel setzen zu können, benutzen Sie den Befehl /hb.Um einzelne Aktionsknöpfe verschieben zu könnenhalten Sie die Taste 'SHIFT' gedrückt."
+
+	L.ElvUIInstall_page6_subtitle = "Einheitenfenster"
+	L.ElvUIInstall_page6_desc1 = "Nach der Einrichtung und Installation der Einheitenfenster, können Sie diesedurch den 'L' Knopf am unteren linken Chatfenster verschieben."
+	L.ElvUIInstall_page6_desc2 = "Sie können mittels der Befehle /dps oder /heal zwischen zwei verschiedenen Layouts wechseln."
+	L.ElvUIInstall_page6_desc3 = "Wenn Sie die Einheitenfenster mit den Standard-Einstellungen einrichten wollen, klicken Sie'Positioniere Einheitenfenster'"
+	L.ElvUIInstall_page6_button1 = "Positioniere Einheitenfenster"
+
+	L.ElvUIInstall_page7_subtitle = "Installation komplett"
+	L.ElvUIInstall_page7_desc1 = "Sie haben die Installation erfolgreich abgeschlossen.Sollten Sie technischen Support benötigen,besuchen Sie uns unterwww.tukui.org."
+	L.ElvUIInstall_page7_desc2 = "Bitte klicken Sie 'Abschließen' um die Variablen zu installieren und ein ReloadUI hervorzurufen."
+	L.ElvUIInstall_page7_button1 = "Abschließen"
+	L.ElvUIInstall_CVarSet = "CVars gesetzt"
+	L.ElvUIInstall_ChatSet = "Chat-Positionen gesetzt"
+	L.ElvUIInstall_UFSet = "Einheitenfenster-Positionen gesetzt"
+
+
 	L.chat_BATTLEGROUND_GET = "[B]"
 	L.chat_BATTLEGROUND_LEADER_GET = "[B]"
 	L.chat_BN_WHISPER_GET = "From"
@@ -23,6 +63,7 @@ if E.client == "deDE" then
 	L.disband = "Gruppe wird aufgelöst."
 	L.chat_trade = "Handel"
 	
+	L.datatext_playerhaste = "Tempo: "
 	L.raidbufftoggler = "Schlachtzugs-Buff Erinnerung: "	
 	L.datatext_download = "Herunterladen: "
 	L.datatext_bandwidth = "Bandbreite: "
@@ -140,8 +181,8 @@ if E.client == "deDE" then
 	L.core_autoinv_enable = "Autoinvite AN: invite"
 	L.core_autoinv_enable_c = "Autoinvite AN: "
 	L.core_autoinv_disable = "Autoinvite AUS"
-	L.core_welcome1 = "Willkommen zu |cff1784d1Elv's Edit von Elvui|r, version "
-	L.core_welcome2 = "Tippe |cff00FFFF/uihelp|r für mehr Informationen, Tippe |cff00FFFF/Elvui|r zum Konfigurieren, oder besuche http://www.tukui.org/forums/forum.php?id=84"
+	L.core_welcome1 = "Willkommen zu |cffff7d0aShifte|r's edit von |cff1784d1ElvUI|r, version "
+	L.core_welcome2 = "Tippe |cff1784d1/uihelp|r für mehr Informationen, Tippe |cff1784d1/elvui|r zum Konfigurieren, oder besuche http://www.tukui.org/forums/forum.php?id=84"
  
 	L.core_uihelp1 = "|cff00ff00Allgemeine Slash Befehle|r"
 	L.core_uihelp2 = "|cff1784d1/tracker|r - Elvui Arena Gegner Abklingzeiten Anzeige - Low-memory Gegner PVP Abkling Anzeige. (Nur Icons)"

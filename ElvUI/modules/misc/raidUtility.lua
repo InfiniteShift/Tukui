@@ -131,6 +131,12 @@ CompactRaidFrameManagerDisplayFrameLeaderOptionsInitiateRolePoll:ClearAllPoints(
 CompactRaidFrameManagerDisplayFrameLeaderOptionsInitiateRolePoll:SetPoint("BOTTOMLEFT", CompactRaidFrameManagerDisplayFrameLeaderOptionsInitiateReadyCheck, "TOPLEFT", 0, 1)
 CompactRaidFrameManagerDisplayFrameLeaderOptionsInitiateRolePoll:SetPoint("BOTTOMRIGHT", CompactRaidFrameManagerDisplayFrameLeaderOptionsInitiateReadyCheck, "TOPRIGHT", 0, 1)
 
+--Raid Control Panel
+CreateButton("RaidControlButton", RaidUtilityPanel, "UIMenuButtonStretchTemplate", RoleCheckButton:GetWidth(), E.Scale(18), "TOPLEFT", ReadyCheckButton, "BOTTOMLEFT", 0, E.Scale(-5), RAID_CONTROL, nil)
+RaidControlButton:SetScript("OnMouseUp", function(self)
+	ToggleeFriendsFrame(4)
+end)
+
 --Reskin Stuff
 do
 	local buttons = {
@@ -140,6 +146,7 @@ do
 		"MainAssistButton",
 		"RoleCheckButton",
 		"ReadyCheckButton",
+		"RaidControlButton",
 		"ShowButton",
 		"CloseButton"
 	}

@@ -31,10 +31,7 @@ L["General Settings"] = "Allgemeine Einstellungen"
 		L["Enable a bar accross the top of the screen, doing this will move the location and coords texts to that bar, and also allow for spaces nine and ten of the datatexts to be used."] = "Aktiviere eine Leiste am oberen Teil des Bildschirms, dies verschiebt die Ortsangabe und die Koordinaten in diese Leiste und ermoeglicht es dadurch Datatext 9 und 10 zu benutzen."
 	L["Lower Frame"] = "Fussleite"
 		L["Enable a bar accross the bottom of the screen, mostly for decoration."] = "Aktiviere eine Leiste am unteren Teil des Bildschirms, hauptsaechlich zur Dekoration."
-	L["Skin Blizzard Frames"] = true
-		L["Enable Elvui style skins on Blizzard frames, such as Character Pane, Spellbook, etc. (WARNING! Still in BETA not all frames have skins yet."] = true
 
-	
 --Media
 L["Media"] = "Media"
 	L["MEDIA_DESC"] = "Setup fuer ElvUI Texturen, Farben, Schriften und Sounds"

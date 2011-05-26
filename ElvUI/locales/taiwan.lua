@@ -24,6 +24,7 @@ if E.client == "zhTW" then
 	L.disband = "正在解散隊伍."
 	L.chat_trade = "交易"
 	
+	L.datatext_playerhaste = "Haste: "
 	L.datatext_download = "下載: "
 	L.datatext_bandwidth = "頻寬: "
 	L.datatext_noguild = "無公會"

@@ -160,7 +160,8 @@ local function Shared(self, unit)
 		RaidDebuffs:Height(RAID_HEIGHT*0.4)
 		RaidDebuffs:Width(RAID_HEIGHT*0.4)
 		RaidDebuffs:Point('CENTER', self, 'CENTER', 0, 0)
-		RaidDebuffs:SetFrameStrata("High")
+		RaidDebuffs:SetFrameStrata("MEDIUM")
+		RaidDebuffs:SetFrameLevel(50)
 		RaidDebuffs:SetTemplate("Default")
 		
 		RaidDebuffs.icon = RaidDebuffs:CreateTexture(nil, 'OVERLAY')
@@ -290,69 +291,108 @@ oUF:Factory(function(self)
 					ChangeVisibility("custom [@raid6,noexists][@raid26,exists] hide;show")
 				end
 			end
+			if inInstance and instanceType == "raid" and maxPlayers == 10 then
+				raid:SetAttribute("groupFilter", "1,2")
+			else
+				raid:SetAttribute("groupFilter", "1,2,3,4,5")
+			end
 		else
 			self:RegisterEvent("PLAYER_REGEN_ENABLED")
 		end
 	end)
 end)
 
-oUF:Factory(function(self)
-	oUF:SetActiveStyle("ElvuiHealR6R25")
-	local raidpet = self:SpawnHeader("ElvuiGridPets", "SecureGroupPetHeaderTemplate", "custom [@raid6,noexists][@raid26,exists] hide;show",
-		'oUF-initialConfigFunction', [[
-			local header = self:GetParent()
-			self:SetWidth(header:GetAttribute('initial-width'))
-			self:SetHeight(header:GetAttribute('initial-height'))
-		]],
-		'initial-width', RAID_WIDTH,
-		'initial-height', RAID_HEIGHT,	
-		"showRaid", true, 
-		"showParty", true,
-		"showPlayer", C["raidframes"].showplayerinparty,
-		"xoffset", 3,
-		"yOffset", -3,
-		"point", "TOP",
-		"groupFilter", "1,2,3,4,5",
-		"groupingOrder", "1,2,3,4,5",
-		"groupBy", "GROUP",
-		"maxColumns", 5,
-		"unitsPerColumn", 5,
-		"columnSpacing", 3,
-		"columnAnchorPoint", "RIGHT",
-		"filterOnPet", true,
-		"sortMethod", "NAME"
-	)
-	raidpet:SetPoint("TOPRIGHT", ElvuiHealR6R25, "TOPLEFT", -3, 0)
-
-	local function ChangeVisibility(visibility)
-		if(visibility) then
-			local type, list = string.split(' ', visibility, 2)
-			if(list and type == 'custom') then
-				RegisterAttributeDriver(ElvuiGridPets, 'state-visibility', list)
-			end
-		end	
-	end
-	
-	local raidToggle = CreateFrame("Frame")
-	raidToggle:RegisterEvent("PLAYER_ENTERING_WORLD")
-	raidToggle:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-	raidToggle:SetScript("OnEvent", function(self)
-		local inInstance, instanceType = IsInInstance()
-		local _, _, _, _, maxPlayers, _, _ = GetInstanceInfo()
-		if event == "PLAYER_REGEN_ENABLED" then self:UnregisterEvent("PLAYER_REGEN_ENABLED") end
-		if not InCombatLockdown() then
-			if inInstance and instanceType == "raid" and maxPlayers ~= 40 then
-				ChangeVisibility("custom [group:party,nogroup:raid][group:raid] show;hide")
-			else
-				if C["raidframes"].gridonly == true then
-					ChangeVisibility("custom [@raid26,exists] hide;show")
-				else
-					ChangeVisibility("custom [@raid6,noexists][@raid26,exists] hide;show")
-				end
-			end
-		else
-			self:RegisterEvent("PLAYER_REGEN_ENABLED")
-		end
-	end)	
+if C["raidframes"].gridpets == true then
+	oUF:Factory(function(self)
+		oUF:SetActiveStyle("ElvuiHealR6R25")
+		local raidpet = self:SpawnHeader("ElvuiGridPets", "SecureGroupPetHeaderTemplate", "custom [@raid6,noexists][@raid26,exists] hide;show",
+			'oUF-initialConfigFunction', [[
+				local header = self:GetParent()
+				self:SetWidth(header:GetAttribute('initial-width'))
+				self:SetHeight(header:GetAttribute('initial-height'))
+			]],
+			'initial-width', RAID_WIDTH,
+			'initial-height', RAID_HEIGHT,	
+			"showRaid", true, 
+			"showParty", true,
+			"showPlayer", C["raidframes"].showplayerinparty,
+			"xoffset", 3,
+			"yOffset", -3,
+			"point", "TOP",
+			"groupFilter", "1,2,3,4,5",
+			"groupingOrder", "1,2,3,4,5",
+			"groupBy", "GROUP",
+			"maxColumns", 5,
+			"unitsPerColumn", 5,
+			"columnSpacing", 3,
+			"columnAnchorPoint", "RIGHT",
+			"filterOnPet", true,
+			"sortMethod", "NAME"
+		)
 		
-end)
+		raidpet:SetPoint("TOPRIGHT", ElvuiHealR6R25, "TOPLEFT", -3, 0)
+
+		local function ChangeVisibility(visibility)
+			if(visibility) then
+				local type, list = string.split(' ', visibility, 2)
+				if(list and type == 'custom') then
+					RegisterAttributeDriver(ElvuiGridPets, 'state-visibility', list)
+				end
+			end	
+		end
+		
+		local raidToggle = CreateFrame("Frame")
+		raidToggle:RegisterEvent("PLAYER_ENTERING_WORLD")
+		raidToggle:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+		raidToggle:SetScript("OnEvent", function(self)
+			local inInstance, instanceType = IsInInstance()
+			local _, _, _, _, maxPlayers, _, _ = GetInstanceInfo()
+			if event == "PLAYER_REGEN_ENABLED" then self:UnregisterEvent("PLAYER_REGEN_ENABLED") end
+			if not InCombatLockdown() then
+				if inInstance and instanceType == "raid" and maxPlayers ~= 40 then
+					ChangeVisibility("custom [group:party,nogroup:raid][group:raid] show;hide")
+				else
+					if C["raidframes"].gridonly == true then
+						ChangeVisibility("custom [@raid26,exists] hide;show")
+					else
+						ChangeVisibility("custom [@raid6,noexists][@raid26,exists] hide;show")
+					end
+				end
+			else
+				self:RegisterEvent("PLAYER_REGEN_ENABLED")
+			end
+		end)	
+			
+		
+	end)
+end
+
+
+
+--[[local ShowPet = CreateFrame("Frame")
+			ShowPet:RegisterEvent("PLAYER_ENTERING_WORLD")
+			ShowPet:RegisterEvent("RAID_ROSTER_UPDATE")
+			ShowPet:RegisterEvent("PARTY_LEADER_CHANGED")
+			ShowPet:RegisterEvent("PARTY_MEMBERS_CHANGED")
+			ShowPet:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+			ShowPet:SetScript("OnEvent", function(self)
+				if InCombatLockdown() then
+					self:RegisterEvent("PLAYER_REGEN_ENABLED")
+				else
+					self:UnregisterEvent("PLAYER_REGEN_ENABLED")
+					local numraid = GetNumRaidMembers()
+					local numparty = GetNumPartyMembers()
+					if (numparty > 0 and numraid == 0) or numraid <= 15 then
+						raidpet:SetPoint("TOPLEFT", ElvuiHealR6R25, "BOTTOMLEFT", 0, -3)
+						ElvuiGridPets:SetAttribute("point", "LEFT")
+						ElvuiGridPets:SetAttribute("columnAnchorPoint", "TOP")
+						ReloadUI()
+					else
+						raidpet:SetPoint("TOPRIGHT", ElvuiHealR6R25, "TOPLEFT", -3, 0)
+						ElvuiGridPets:SetAttribute("point", "TOP")
+						ElvuiGridPets:SetAttribute("columnAnchorPoint", "RIGHT")
+						ReloadUI()
+					end
+				end
+			end)			
+]]

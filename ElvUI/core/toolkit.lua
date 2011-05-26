@@ -4,7 +4,7 @@ local noop = E.dummy
 local floor = math.floor
 local class = E.myclass
 local texture = C["media"].blank
-local backdropr, backdropg, backdropb, backdropa, borderr, borderg, borderb = 0, 0, 0, 1, 0, 0, 0
+local backdropr, backdropg, backdropb, backdropa, borderr, borderg, borderb, bordera = 0, 0, 0, 1, 0, 0, 0, 1
 
 ---------------------------------------------------
 -- TEMPLATES
@@ -25,7 +25,7 @@ local function GetTemplate(t)
 		borderr, borderg, borderb = unpack(C["media"].bordercolor)
 		backdropr, backdropg, backdropb, backdropa = unpack(C["media"].backdropfadecolor)	
 	else
-		borderr, borderg, borderb = unpack(C["media"].bordercolor)
+		borderr, borderg, borderb, bordera = unpack(C["media"].bordercolor)
 		backdropr, backdropg, backdropb = unpack(C["media"].backdropcolor)
 	end
 end
@@ -111,7 +111,7 @@ local function SetTemplate(f, t, texture)
 			f.oborder = border				
 		end
 	end
-	f:SetBackdropBorderColor(borderr, borderg, borderb)
+	f:SetBackdropBorderColor(borderr, borderg, borderb, bordera)
 end
 
 local function CreatePanel(f, t, w, h, a1, p, a2, x, y)
@@ -155,6 +155,7 @@ local function CreateShadow(f, t)
 	end
 	
 	local shadow = CreateFrame("Frame", nil, f)
+	
 	shadow:SetFrameLevel(1)
 	shadow:SetFrameStrata(f:GetFrameStrata())
 	shadow:Point("TOPLEFT", -3, 3)
@@ -165,8 +166,10 @@ local function CreateShadow(f, t)
 		edgeFile = C["media"].glowTex, edgeSize = E.Scale(3),
 		insets = {left = E.Scale(5), right = E.Scale(5), top = E.Scale(5), bottom = E.Scale(5)},
 	})
+	
 	shadow:SetBackdropColor(backdropr, backdropg, backdropb, 0)
 	shadow:SetBackdropBorderColor(borderr, borderg, borderb, 0.9)
+
 	f.shadow = shadow
 end
 

@@ -31,8 +31,6 @@ L["General Settings"] = true
 		L["Enable a bar accross the top of the screen, doing this will move the location and coords texts to that bar, and also allow for spaces nine and ten of the datatexts to be used."] = true
 	L["Lower Frame"] = true
 		L["Enable a bar accross the bottom of the screen, mostly for decoration."] = true
-	L["Skin Blizzard Frames"] = true
-		L["Enable Elvui style skins on Blizzard frames, such as Character Pane, Spellbook, etc. (WARNING! Still in BETA not all frames have skins yet."] = true
 		
 --Media
 L["Media"] = true
@@ -245,6 +243,8 @@ L["Raid Frames"] = true
 	L["25 Man Layout Party"] = true
 		L["Use the 25 man layout inside a party group"] = true
 	L["Display Debuffs"] = true
+	L["Heal Layout Grid Pets"] = true
+		L["Show pets in grid layout for raids"] = true
 	
 --Classtimer		
 L["Class Timers"] = true
@@ -354,7 +354,8 @@ L["Data Texts"] = true
 		L["Display Critical Strike Rating"] = true
 	L["Mana Regen"] = true
 		L["Display Mana Regen Rate"] = true
-	
+	L["Call to Arms"] = true
+		L["Display the active roles that will recieve a reward for completing a random dungeon"] = true
 	
 --chat
 L["Chat"] = true
@@ -399,8 +400,59 @@ L["Tooltip"] = true
 		L["Display if anyone in your party/raid is targetting the tooltip unit"] = true
 	
 --External Addons
-L["Addon Skins"] = true
-	L["ADDON_DESC"] = "Adjust settings for external addon skins/options"
+L["Skins"] = true
+	L["Enable/disable skinning of the entire BlizzardUI."] = true
+	L["TOGGLESKIN_DESC"] = "Enable/Disable this skin."
+	
+	L["Reforge Frame"] = true
+	L["Calendar Frame"] = true
+	L["Achievement Frame"] = true
+	L["LF Guild Frame"] = true
+	L["Inspect Frame"] = true
+	L["KeyBinding Frame"] = true
+	L["Guild Bank"] = true
+	L["Archaeology Frame"] = true
+	L["Guild Control Frame"] = true
+	L["Guild Frame"] = true
+	L["TradeSkill Frame"] = true
+	L["Raid Frame"] = true
+	L["Talent Frame"] = true
+	L["Glyph Frame"] = true
+	L["Auction Frame"] = true
+	L["Barbershop Frame"] = true
+	L["Macro Frame"] = true
+	L["Debug Tools"] = true
+	L["Trainer Frame"] = true
+	L["Socket Frame"] = true
+	L["Achievement Popup Frames"] = true
+	L["BG Score"] = true
+	L["Merchant Frame"] = true
+	L["Mail Frame"] = true
+	L["Help Frame"] = true
+	L["Trade Frame"] = true
+	L["Gossip Frame"] = true
+	L["Greeting Frame"] = true
+	L["World Map"] = true
+	L["Taxi Frame"] = true
+	L["LFD Frame"] = true
+	L["Quest Frames"] = true
+	L["Petition Frame"] = true
+	L["Dressing Room"] = true
+	L["PvP Frames"] = true
+	L["Non-Raid Frame"] = true
+	L["Friends"] = true
+	L["Spellbook"] = true
+	L["Character Frame"] = true
+	L["LFR Frame"] = true
+	L["Misc Frames"] = true
+	L["Tabard Frame"] = true
+	L["Guild Registrar"] = true
+	L["Time Manager"] = true
+	L["Encounter Journal"] = true
+	
+	L["Blizzard Skins"] = true
+	L["SKIN_DESC"] = "Adjust settings for external addon skins. As well as skinning of default blizzard stuff."
+	L["Addon Skins"] = true
 	L["Enable this skin"] = true
 	L["Embed Right"] = true
 	L["EMBED_DESC"] = "Choose an AddOn to embed to the right chat window, tooltip should never cover the addon up, and if you have a hook bar option for your addon the bar should stay above the addon if the chatwindow is animated out"
