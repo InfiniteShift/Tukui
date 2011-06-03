@@ -37,7 +37,8 @@ DB["general"] = {
 	["layoutoverride"] = "Healer",			 -- ovverride layout (DPS, Healer)
 	["sharpborders"] = true,				 -- self explainatory?
 	["upperpanel"] = false,					 -- add a panel to the top of the screen
-	["lowerpanel"] = false,					 -- add a panel to the bottom of the screen				
+	["lowerpanel"] = false,					 -- add a panel to the bottom of the screen
+	["shadows"] = false,					
 }
 
 DB["skin"] = {
@@ -289,7 +290,7 @@ DB["datatext"] = {
 DB["chat"] = {
 	["enable"] = true,                     -- blah
 	["whispersound"] = true,               -- play a sound when receiving whisper
-	["showbackdrop"] = false,			   -- show a backdrop on the chat panels
+	["showbackdrop"] = true,			   -- show a backdrop on the chat panels
 	["chatwidth"] = 348,				   -- width of chat frame
 	["chatheight"] = 111,				   -- height of chat frame
 	["fadeoutofuse"] = true,			   -- fade chat text when out of use

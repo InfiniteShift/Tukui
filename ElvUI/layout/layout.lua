@@ -185,6 +185,7 @@ chatlbgdummy2:SetPoint("BOTTOMLEFT", ElvuiBottomPanel, "TOPLEFT", E.Scale(4),  E
 local chatrbgdummy = CreateFrame("Frame", "ChatRBackground", UIParent)
 chatrbgdummy:SetWidth(C["chat"].chatwidth)
 chatrbgdummy:SetHeight(C["chat"].chatheight+6)
+chatrbgdummy:SetPoint("BOTTOMRIGHT", ElvuiBottomPanel, "TOPRIGHT", E.Scale(-4),  E.Scale(7))
 
 -- CHAT BACKGROUND RIGHT (DOESN'T MOVE THIS IS WHAT WE ATTACH FRAMES TO)
 local chatrbgdummy2 = CreateFrame("Frame", "ChatRBackground2", UIParent)

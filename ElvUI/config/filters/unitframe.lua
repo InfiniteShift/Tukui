@@ -71,7 +71,6 @@ E.ArenaBuffWhiteList = {
 -- Target/Arena Frames/ Nameplates use these
 E.DebuffWhiteList = {
 	-- Death Knight
-		[SpellName(51209)] = true, --hungering cold
 		[SpellName(47476)] = true, --strangulate
 	-- Druid
 		[SpellName(33786)] = true, --Cyclone

@@ -43,6 +43,7 @@ Kill:SetScript("OnEvent", function(self, event, addon)
 		Advanced_UIScaleSlider:Kill()
 		PartyMemberBackground:Kill()
 		TutorialFrameAlertButton:Kill()
+		PlayerTalentFrameLearnButtonTutorialArrow:Kill()
 		
 		InterfaceOptionsUnitFramePanelPartyBackground:Kill()
 		
