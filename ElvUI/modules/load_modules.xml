@@ -9,7 +9,6 @@
 	<Include file="maps\load_maps.xml"/>
 	<Include file="nameplates\load_nameplates.xml"/>
 	<Include file="tooltip\load_tooltip.xml"/>
-	<Include file="classtimer\load_classtimer.xml"/>
 	<Include file="misc\load_misc.xml"/>
 	<Include file="addonskins\load_addonskins.xml"/>
 	<Include file="unitframes\load_unitframes.xml"/>
