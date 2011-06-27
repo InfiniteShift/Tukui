@@ -95,7 +95,7 @@ DB["skin"] = {
 	["dbm"] = true,							 -- Skin DBM to match Elvui
 	["bigwigs"] = true,						 -- Skin BigWigs to match Elvui
 	["hookkleright"] = true,				 -- force KLE's top bar anchor to be hooked onto the right chat window
-	["hookbwright"] = true,			         -- force BigWig's bar anchor to be hooked onto the right chat window
+	["hookbwright"] = false,			         -- force BigWig's bar anchor to be hooked onto the right chat window
 	["embedright"] = "Recount",				 -- Addon to embed to the right frame ("Omen", "Recount", "Skada")
 }
 
@@ -203,21 +203,6 @@ DB["raidframes"] = {
 	["mini_powerbar"] = false,				-- 
 	["gridonly"] = false,					-- use grid in party frames
 	["gridpets"] = true, 					-- show pets in grid in the healer layout
-}
-
-DB["classtimer"] = {
-	["enable"] = false,
-	["bar_height"] = 17,
-	["bar_spacing"] = 5,
-	["icon_position"] = 2, -- 0 = left, 1 = right, 2 = Outside left, 3 = Outside Right
-	["layout"] = 4, --1 - both player and target auras in one frame right above player frame, 2 - player and target auras separated into two frames above player frame, 3 - player, target and trinket auras separated into three frames above player frame, 4 - player and trinket auras are shown above player frame and target auras are shown above target frame, 5 - Everything above player frame, no target debuffs.
-	["showspark"] = true,
-	["cast_suparator"] = true,
-	
-	["classcolor"] = false,
-	["buffcolor"] = DB["media"].bordercolor, -- if classcolor isnt true
-	["debuffcolor"] = {r = 0.78, g = 0.25, b = 0.25},
-	["proccolor"] = {r = 0.84, g = 0.75, b = 0.65},
 }
 
 DB["actionbar"] = {

@@ -64,6 +64,8 @@ ns.Filger_Spells = {
 			{ spellID = 33763, size = 47, unitId = "focus", caster = "player", filter = "BUFF" },
 			-- Clearcasting/Freizaubern
 			{ spellID = 16870, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
+			-- Pulverize
+			{ spellID = 80951, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 		},
 		{
 			Name = "T_DEBUFF_ICON",
@@ -71,7 +73,9 @@ ns.Filger_Spells = {
 			Interval = 4,
 			Mode = "ICON",
 			setPoint = { "LEFT", UIParent, "CENTER", 160, -20 },
-
+			
+			-- Demoralizing Roar
+			{ spellID = 99, size = 47, unitId = "target", caster = "player", filter = "DEBUFF" },
 			-- Hibernate/Winterschlaf
 			{ spellID = 2637, size = 47, unitId = "target", caster = "all", filter = "DEBUFF" },
 			-- Entangling Roots/Wucherwurzeln
@@ -771,6 +775,10 @@ ns.Filger_Spells = {
 			{ spellID = 82762, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			--Lightning Rod (Twilight Ascendant Council)
 			{ spellID = 83099, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			--Gravity Core (
+			{ spellID = 92075, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			--Static Overload (
+			{ spellID = 92067, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			--Wind Chill (Conclave of Wind)
 			{ spellID = 84645, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			--Soothing Breeze (Conclave of Wind)
@@ -779,6 +787,7 @@ ns.Filger_Spells = {
 			{ spellID = 89666, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			--Wrack (Sinestra)
 			{ spellID = 92956, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			
 			
 			----[[ Icecrown Citadel ]]----
 			--Infest (Lich King)

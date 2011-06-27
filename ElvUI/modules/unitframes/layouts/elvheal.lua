@@ -1591,9 +1591,6 @@ local function LoadHealLayout()
 	end
 	
 	E.LoadMoveElements("Heal")
-	if C["classtimer"].enable == true then
-		E.LoadClassTimers(ElvHeal_player, ElvHeal_target)
-	end
 end
 
 E.Layouts["Heal"] = LoadHealLayout

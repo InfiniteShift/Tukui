@@ -1453,13 +1453,13 @@ local function LoadDPSLayout()
 
 	-- Player
 	local player = oUF:Spawn('player', "ElvDPS_player")
-	player:Point("BOTTOMLEFT", ElvuiSplitActionBarLeftBackground, "TOPLEFT", 0, 35)
+	player:Point("BOTTOM", ElvuiActionBarBackground, "TOPLEFT", -45, 75)
 	player:Size(PLAYER_WIDTH, PLAYER_HEIGHT)
 
 	-- Target
 	local target = oUF:Spawn('target', "ElvDPS_target")
-	target:Point("BOTTOMRIGHT", ElvuiSplitActionBarRightBackground, "TOPRIGHT", 0, 35)
-	target:Size(TARGET_WIDTH, TARGET_HEIGHT)
+	target:Point("BOTTOM", ElvuiActionBarBackground, "TOPRIGHT", 45, 75)
+	target:SetSize(TARGET_WIDTH, TARGET_HEIGHT)
 
 	-- Focus
 	local focus = oUF:Spawn('focus', "ElvDPS_focus")
@@ -1468,7 +1468,7 @@ local function LoadDPSLayout()
 
 	-- Target's Target
 	local tot = oUF:Spawn('targettarget', "ElvDPS_targettarget")
-	tot:Point("BOTTOM", ElvuiActionBarBackground, "TOP", 0, 35)
+	tot:Point("BOTTOM", ElvuiActionBarBackground, "TOP", 0, 75)
 	tot:Size(SMALL_WIDTH, SMALL_HEIGHT)
 
 	-- Player's Pet
@@ -1495,11 +1495,11 @@ local function LoadDPSLayout()
 	if C.unitframes.arena then
 		local arena = {}
 		for i = 1, 5 do
-			arena[i] = oUF:Spawn("arena"..i, "ElvDPSArena"..i)
+			arena[i] = oUF:Spawn("arena"..i, "ElvHealArena"..i)
 			if i == 1 then
-				arena[i]:Point("BOTTOMLEFT", ChatRBackground2, "TOPLEFT", -80, 185)
+				arena[i]:Point("BOTTOMLEFT", ChatRBackground2, "TOPLEFT", -120, 255)
 			else
-				arena[i]:Point("BOTTOM", arena[i-1], "TOP", 0, 25)
+				arena[i]:Point("BOTTOM", arena[i-1], "TOP", 0, 38)
 			end
 			arena[i]:Size(BOSS_WIDTH, BOSS_HEIGHT)
 		end
@@ -1508,11 +1508,11 @@ local function LoadDPSLayout()
 	if C["unitframes"].showboss then
 		local boss = {}
 		for i = 1, MAX_BOSS_FRAMES do
-			boss[i] = oUF:Spawn("boss"..i, "ElvDPSBoss"..i)
+			boss[i] = oUF:Spawn("boss"..i, "ElvHealBoss"..i)
 			if i == 1 then
-				boss[i]:Point("BOTTOMLEFT", ChatRBackground2, "TOPLEFT", -80, 185)
+				boss[i]:Point("BOTTOMLEFT", ChatRBackground2, "TOPLEFT", -120, 255)
 			else
-				boss[i]:Point('BOTTOM', boss[i-1], 'TOP', 0, 25)             
+				boss[i]:Point('BOTTOM', boss[i-1], 'TOP', 0, 38)             
 			end
 			boss[i]:Size(BOSS_WIDTH, BOSS_HEIGHT)
 		end
@@ -1575,9 +1575,6 @@ local function LoadDPSLayout()
 	end
 
 	E.LoadMoveElements("DPS")
-	if C["classtimer"].enable == true then
-		E.LoadClassTimers(ElvDPS_player, ElvDPS_target)
-	end	
 end
 
 E.Layouts["DPS"] = LoadDPSLayout

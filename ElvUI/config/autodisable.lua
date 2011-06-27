@@ -44,9 +44,12 @@ C["unitframes"].healthbackdropcolor = {E.UnpackColors(C["unitframes"].healthback
 C["unitframes"].nointerruptcolor = {E.UnpackColors(C["unitframes"].nointerruptcolor)}
 C["unitframes"].castbarcolor = {E.UnpackColors(C["unitframes"].castbarcolor)}
 C["unitframes"].healthcolor = {E.UnpackColors(C["unitframes"].healthcolor)}
+--[[
 C["classtimer"].buffcolor = {E.UnpackColors(C["classtimer"].buffcolor)}
 C["classtimer"].debuffcolor = {E.UnpackColors(C["classtimer"].debuffcolor)}
 C["classtimer"].proccolor = {E.UnpackColors(C["classtimer"].proccolor)}
+]]
+
 
 -------------------------------
 -- Load Shared Media Settings

@@ -157,8 +157,8 @@ local function Shared(self, unit)
 	-- Raid Debuffs
 	if C["raidframes"].debuffs == true then
 		local RaidDebuffs = CreateFrame('Frame', nil, self)
-		RaidDebuffs:Height(RAID_HEIGHT*0.4)
-		RaidDebuffs:Width(RAID_HEIGHT*0.4)
+		RaidDebuffs:Height(RAID_HEIGHT*0.5)
+		RaidDebuffs:Width(RAID_HEIGHT*0.5)
 		RaidDebuffs:Point('CENTER', self, 'CENTER', 0, 0)
 		RaidDebuffs:SetFrameStrata("MEDIUM")
 		RaidDebuffs:SetFrameLevel(50)
@@ -189,6 +189,19 @@ local function Shared(self, unit)
 		E.createAuraWatch(self,unit)
     end
 	
+	--Resurrect Indicator
+	if E.IsPTRVersion() then
+		local Resurrect = CreateFrame('Frame', nil, self)
+		Resurrect:SetFrameLevel(20)
+
+		local ResurrectIcon = Resurrect:CreateTexture(nil, "OVERLAY")
+		ResurrectIcon:Point(health.value:GetPoint())
+		ResurrectIcon:Size(30, 25)
+		ResurrectIcon:SetDrawLayer('OVERLAY', 7)
+
+		self.ResurrectIcon = ResurrectIcon
+	end
+
 	if C["raidframes"].mouseglow == true then
 		self:CreateShadow("Default")
 		
