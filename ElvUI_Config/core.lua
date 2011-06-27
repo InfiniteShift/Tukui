@@ -19,7 +19,6 @@ function ElvuiConfig:LoadDefaults()
 			skin = DB["skin"],
 			unitframes = DB["unitframes"],
 			raidframes = DB["raidframes"],
-			classtimer = DB["classtimer"],
 			actionbar = DB["actionbar"],
 			datatext = DB["datatext"],
 			chat = DB["chat"],
@@ -87,7 +86,6 @@ function ElvuiConfig:SetupOptions()
 	self.optionsFrames.Nameplates = ACD3:AddToBlizOptions("ElvuiConfig", L["Nameplates"], "ElvUI", "nameplate")
 	self.optionsFrames.Unitframes = ACD3:AddToBlizOptions("ElvuiConfig", L["Unit Frames"], "ElvUI", "unitframes")
 	self.optionsFrames.Raidframes = ACD3:AddToBlizOptions("ElvuiConfig", L["Raid Frames"], "ElvUI", "raidframes")
-	self.optionsFrames.Classtimer = ACD3:AddToBlizOptions("ElvuiConfig", L["Class Timers"], "ElvUI", "classtimer")
 	self.optionsFrames.Actionbar = ACD3:AddToBlizOptions("ElvuiConfig", L["Action Bars"], "ElvUI", "actionbar")
 	self.optionsFrames.Datatext = ACD3:AddToBlizOptions("ElvuiConfig", L["Data Texts"], "ElvUI", "datatext")
 	self.optionsFrames.Chat = ACD3:AddToBlizOptions("ElvuiConfig", L["Chat"], "ElvUI", "chat")
@@ -1620,121 +1618,6 @@ function ElvuiConfig.GenerateOptionsInternal()
 								desc = L["Show pets in grid layout for raids"],
 								disabled = function() return not db.raidframes.enable or not IsAddOnLoaded("ElvUI_RaidHeal") end,
 							},
-						},
-					},
-				},
-			},
-			classtimer = {
-				order = 6,
-				type = "group",
-				name = L["Class Timers"],
-				desc = L["CLASSTIMER_DESC"],
-				get = function(info) return db.classtimer[ info[#info] ] end,
-				set = function(info, value) db.classtimer[ info[#info] ] = value; StaticPopup_Show("CFG_RELOAD") end,
-				args = {
-					intro = {
-						order = 1,
-						type = "description",
-						name = L["CLASSTIMER_DESC"],
-					},
-					enable = {
-						order = 2,
-						type = "toggle",
-						name = ENABLE,
-						desc = L["Enable Class Timers"],
-					},
-					CTGroup = {
-						order = 3,
-						type = "group",
-						name = L["General Settings"],
-						guiInline = true,
-						disabled = function() return not db.classtimer.enable or (not ElvDPS_player and not ElvHeal_player) or not db.unitframes.enable end,	
-						args = {
-							bar_height = {
-								type = "range",
-								order = 1,
-								name = L["Bar Height"],
-								desc = L["Controls the height of the bar"],
-								type = "range",
-								min = 9, max = 25, step = 1,								
-							},
-							bar_spacing = {
-								type = "range",
-								order = 2,
-								name = L["Bar Spacing"],
-								desc = L["Controls the spacing in between bars"],
-								type = "range",
-								min = 5, max = 10, step = 1,								
-							},
-							icon_position = {
-								type = "range",
-								order = 3,
-								name = L["Icon Position"],
-								desc = L["0 = Left\n1 = Right\n2 = Outside Left\n3 = Outside Right"],
-								type = "range",
-								min = 0, max = 3, step = 1,								
-							},
-							layout = {
-								type = "range",
-								order = 4,
-								name = L["Layout"],
-								desc = L["LAYOUT_DESC"],
-								type = "range",
-								min = 1, max = 5, step = 1,								
-							},
-							showspark = {
-								type = "toggle",
-								order = 5,
-								name = L["Spark"],
-								desc = L["Display spark"],
-							},
-							cast_suparator = {
-								type = "toggle",
-								order = 6,
-								name = L["Cast Seperator"],							
-							},
-							classcolor = {
-								type = "toggle",
-								order = 7,
-								name = L["Class Color"],								
-							},
-							ColorGroup = {
-								order = 8,
-								type = "group",
-								name = L["Colors"],
-								guiInline = true,
-								disabled = function() return not db.classtimer.enable or (not ElvDPS_player and not ElvHeal_player) or not db.unitframes.enable or db.classtimer.classcolor end,
-								get = function(info)
-									local t = db.classtimer[ info[#info] ]
-									return t.r, t.g, t.b, t.a
-								end,
-								set = function(info, r, g, b)
-									db.classtimer[ info[#info] ] = {}
-									local t = db.classtimer[ info[#info] ]
-									t.r, t.g, t.b = r, g, b
-									StaticPopup_Show("CFG_RELOAD")
-								end,									
-								args = {
-									buffcolor = {
-										type = "color",
-										order = 1,
-										name = L["Buff"],
-										hasAlpha = false,	
-									},
-									debuffcolor = {
-										type = "color",
-										order = 2,
-										name = L["Debuff"],
-										hasAlpha = false,	
-									},	
-									proccolor = {
-										type = "color",
-										order = 3,
-										name = L["Proc"],
-										hasAlpha = false,	
-									},											
-								},
-							},				
 						},
 					},
 				},
