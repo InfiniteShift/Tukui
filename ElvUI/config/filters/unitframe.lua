@@ -5,6 +5,8 @@ local function SpellName(id)
 	return name
 end
 
+derpderp = GetSpellInfo(101908) 	
+
 --[[
 		This file is for adding of deleting a spellID.
 		
@@ -262,7 +264,18 @@ E.RaidDebuffs = {
 	--Al'Akir
 	[SpellName(93260)] = true, -- Ice Storm
 	[SpellName(93295)] = true, -- Lightning Rod
+	
+--Firelands
+	--Shannox
+	[SpellName(99837)] = true, -- Crystal Prison Trap
+	[SpellName(99937)] = true, -- Jagged Tear
+	[SpellName(101208)] = true, -- Immolation Trap
+	
+	--Alysrazor
+	--Beth'tilac
 }
+
+--E.RaidDebuffs[SpellName(101908)] = true -- Immolation Trap
 
 
 E.ReverseTimer = {

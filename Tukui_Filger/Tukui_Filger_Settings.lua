@@ -33,6 +33,8 @@ ns.Filger_Spells = {
 			{ spellID = 18562, size = 32, filter = "CD" },
 			-- Tree of Life
 			{ spellID = 33891, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
+			-- Harmony
+			{ spellID = 100977, size = 32, unitId = "player", caster = "player", filter = "BUFF" },
 		},
 		{
 			Name = "P_PROC_ICON",
@@ -66,6 +68,9 @@ ns.Filger_Spells = {
 			{ spellID = 16870, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
 			-- Pulverize
 			{ spellID = 80951, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
+			-- Harmony
+			{ spellID = 100977, size = 47, unitId = "player", caster = "player", filter = "BUFF" },
+			
 		},
 		{
 			Name = "T_DEBUFF_ICON",
@@ -787,6 +792,10 @@ ns.Filger_Spells = {
 			{ spellID = 89666, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			--Wrack (Sinestra)
 			{ spellID = 92956, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			
+			----[[ Firelands ]] ---
+			--Immolation (Shannox)
+			{ spellID = 101208, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			
 			
 			----[[ Icecrown Citadel ]]----
