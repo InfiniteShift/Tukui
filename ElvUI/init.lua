@@ -15,14 +15,14 @@ ElvUI = engine --Allow other addons to use Engine
 
 
 local E, C, L, DB = unpack(select(2, ...))
-function E.IsPTRVersion()
+--[[function E.IsPTRVersion()
 	local _, version = GetBuildInfo()
 	if tonumber(version) > 14007 then
 		return true
 	else
 		return false
 	end
-end
+end]]
 
 --[[
 	This should be at the top of every file inside of the ElvUI AddOn:

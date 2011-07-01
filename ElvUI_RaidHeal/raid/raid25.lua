@@ -190,7 +190,6 @@ local function Shared(self, unit)
     end
 	
 	--Resurrect Indicator
-	if E.IsPTRVersion() then
 		local Resurrect = CreateFrame('Frame', nil, self)
 		Resurrect:SetFrameLevel(20)
 
@@ -200,7 +199,6 @@ local function Shared(self, unit)
 		ResurrectIcon:SetDrawLayer('OVERLAY', 7)
 
 		self.ResurrectIcon = ResurrectIcon
-	end
 
 	if C["raidframes"].mouseglow == true then
 		self:CreateShadow("Default")

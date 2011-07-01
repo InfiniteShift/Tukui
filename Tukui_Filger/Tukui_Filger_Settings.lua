@@ -798,6 +798,18 @@ ns.Filger_Spells = {
 			{ spellID = 101208, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
 			
 			
+			--Tormented (Baleroc)
+			{ spellID = 99403, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			--Vital Spark (Baleroc)
+			{ spellID = 99262, size = 72, unitId = "player", caster = "all", filter = "BUFF" },
+			--Vital Flame (Baleroc)
+			{ spellID = 99263, size = 72, unitId = "player", caster = "all", filter = "BUFF" },
+			--Seering Seeds (Majordomo Staghelm)
+			{ spellID = 98450, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			--Burning Orb (Majordomo Staghelm)
+			{ spellID = 100209, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },
+			
+			
 			----[[ Icecrown Citadel ]]----
 			--Infest (Lich King)
 			{ spellID = 73779, size = 72, unitId = "player", caster = "all", filter = "DEBUFF" },

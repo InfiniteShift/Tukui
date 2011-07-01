@@ -271,8 +271,21 @@ E.RaidDebuffs = {
 	[SpellName(99937)] = true, -- Jagged Tear
 	[SpellName(101208)] = true, -- Immolation Trap
 	
+	--Baleroc
+	[SpellName(100230)] = true, -- Tormented
+	[SpellName(99403)] = true, -- Torment
+	
 	--Alysrazor
+	[SpellName(100723)] = true, --Gushing Wound
+	
 	--Beth'tilac
+	[SpellName(99506)] = true, --Widows Kiss
+	
+	--Majordomo Staghelm
+	[SpellName(100209)] = true, --Burning Orb
+	
+	--Ragnaros
+	[SpellName(99399)] = true, --Burning Wound
 }
 
 --E.RaidDebuffs[SpellName(101908)] = true -- Immolation Trap

@@ -297,4 +297,7 @@ if C["datatext"].panelpos == "CENTER" then
 	inforightLbutton:SetHeight(infobuttonheight)
 	inforightLbutton:SetWidth(infobuttonwidth)
 	inforightLbutton:SetPoint("TOPLEFT", inforight, "TOPRIGHT", E.Scale(2), 0)
+	
+	-- Reposition Vehicle Bar
+	ElvuiVehicleBarBackground:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, (E.Scale(8) + ElvuiInfoLeft:GetHeight()))
 end
